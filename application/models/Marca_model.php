@@ -45,4 +45,18 @@ class Marca_model extends MY_Model{
             throw new Exception('Erro ao validar os dados');
         }
     }
+    
+    public function get_marcas_array()
+    {
+        $rs = $this->db->get($this->table)
+                ->result();
+        
+        $marcas = array();
+        if(is_array($rs)){
+            foreach ($rs as $reg){
+                $marcas[$reg->idmarca] = $reg->nomemarca;
+            }
+        }
+        return $marcas;
+    }
 }
