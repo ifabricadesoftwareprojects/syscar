@@ -73,4 +73,12 @@ class Modelos extends MY_Controller {
         $this->_data['action'] = 'Atualizar';
         $this->view('modelo_form', $this->_data);
     }
+    
+    public function buscar()
+    {
+        if($this->input->post()){
+            $modelos = $this->modelo->get_modelos_by_marca_array($this->input->post('marca'));
+            echo json_encode($modelos);
+        }
+    }
 }

@@ -57,4 +57,20 @@ class Modelo_model extends MY_Model{
                         ->get()
                         ->result();
     }
+    
+     public function get_modelos_by_marca_array($marca_idmarca)
+    {
+        $rs = $this->db
+                ->where('marca_idmarca', $marca_idmarca)
+                ->get($this->table)
+                ->result();
+        
+        $modelos = array();
+        if(is_array($rs)){
+            foreach ($rs as $reg){
+                $modelos[$reg->idmodelo] = $reg->nomemodelo;
+            }
+        }
+        return $modelos;
+    }
 }

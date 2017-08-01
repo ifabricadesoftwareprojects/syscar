@@ -8,9 +8,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <form method="post">
+                                    <input type="hidden" name="url" id="url" value="<?php echo site_url('admin/modelos/buscar') ?>" />
                                     <div class="form-group">
-                                        <label>Nome da Versão</label>
-                                        <input type="text" name="nomeversao" class="form-control" placeholder="Nome da versão" value="<?php echo $versao->nomeversao ?>">
+                                        <label>Marca</label>
+                                        <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), '', 'class="form-control" id="cmbMarcas"') ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Modelo</label>
+                                        <?php echo form_dropdown('modelo_idmodelo', array('Selecione uma marca'), '', 'class="form-control" id="cmbModelos"') ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Descrição</label>

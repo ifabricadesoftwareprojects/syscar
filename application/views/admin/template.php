@@ -54,6 +54,18 @@
                         <p>Marcas</p>
                     </a>
                 </li>
+                <li<?php echo ($active == 'modelos' ? ' class="active"' : '') ?>>
+                    <a href="<?php echo admin_link('modelos') ?>">
+                        <i class="pe-7s-note"></i>
+                        <p>Modelos</p>
+                    </a>
+                </li>
+                <li<?php echo ($active == 'versoes' ? ' class="active"' : '') ?>>
+                    <a href="<?php echo admin_link('versoes') ?>">
+                        <i class="pe-7s-note"></i>
+                        <p>Versões</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -112,7 +124,7 @@
     <!--   Core JS Files   -->
     <script src="<?php echo link_assets('admin/js/jquery-1.10.2.js') ?>" type="text/javascript"></script>
     <script src="<?php echo link_assets('admin/js/bootstrap.min.js') ?>" type="text/javascript"></script>
-
+    <script src="<?php echo link_assets('admin/js/admin.js') ?>" type="text/javascript"></script>
     <!--  Checkbox, Radio & Switch Plugins -->
     <script src="<?php echo link_assets('admin/js/bootstrap-checkbox-radio-switch.js') ?>"></script>
 

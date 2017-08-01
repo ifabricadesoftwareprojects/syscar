@@ -12,6 +12,9 @@ class Versoes extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('versao_model', 'versao');
+        $this->load->model('modelo_model', 'modelo');
+        $this->load->model('marca_model', 'marca');
+        $this->load->helper('form');
         
         $this->_data['active'] = 'versoes';
         $this->_data['title'] = 'Gerenciar Versao';
@@ -38,7 +41,8 @@ class Versoes extends MY_Controller {
                 $this->session->set_flashdata('msgstatus', 'error');
             }
         }
-        $this->_data['versao'] = $this->modelo;
+        $this->_data['versao'] = $this->versao;
+        $this->_data['marcas'] = $this->marca->get_marcas_array();
         
         $this->_data['sub_title'] = 'Adicionar novo versao';
         $this->_data['action'] = 'Adicionar'; //Como Add e Editar sao no mesmo form, essa var será usada no botao de submit
