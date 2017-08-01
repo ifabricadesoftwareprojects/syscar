@@ -1,5 +1,16 @@
 <?php
 
+function alert_message($message, $status)
+{
+    if(!is_null($message)){
+        return '<div class="alert alert-'. $status .'">
+                <button type="button" aria-hidden="true" class="close">×</button>
+                <span>'. $message .'</span>
+            </div>';
+    }
+    return '';
+}
+
 function get_alert_code($msg, $status) {
     if ($msg == '' || is_null($msg)) {
         return '';

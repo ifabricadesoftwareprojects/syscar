@@ -40,6 +40,22 @@ class MY_Model extends CI_Model {
         return $obj;
     }
     
+    //Se existir atualiza, senao salva
+    public function save()
+    {
+        try{
+            if($this->exists() === false){
+                $this->insert();
+            }
+            else{
+                $pk = $this->pk;
+                $this->update($this->pk, $this->$pk);
+            }
+        } catch (Exception $ex) {
+            throw new Exception($this->erro['message']);
+        }
+    }
+    
     public function insert()
     {
         $res = $this->db->insert($this->table, $this);
@@ -92,5 +108,13 @@ class MY_Model extends CI_Model {
                 ->offset($offset)
                 ->get()
                 ->custom_result_object($this->model);
+    }
+    
+    public function exists()
+    {
+        $pk = $this->pk;
+        $get = $this->find($this->$pk);
+        
+        return (is_null($get) ? false : true);
     }
 }

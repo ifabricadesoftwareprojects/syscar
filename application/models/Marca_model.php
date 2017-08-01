@@ -11,18 +11,13 @@
  *
  * @author Aluno
  */
-class Idioma_model extends MY_Model{
+class Marca_model extends MY_Model{
     //put your code here
-    protected $table = 'idioma';
-    protected $pk = 'ididioma';
+    protected $table = 'marca';
+    protected $pk = 'idmarca';
     
-    public $ididioma;
-    public $descricao_idioma;
-    public $le;
-    public $escreve;
-    public $fala;
-    public $entende;
-    public $candidato_usuario_idusuario;
+    public $idmarca;
+    public $nomemarca;
     
     public function __construct() {
         parent::__construct();
@@ -43,12 +38,7 @@ class Idioma_model extends MY_Model{
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
         
-        $validate->set('descricao_idioma', $this->descricao_idioma)->is_required();
-        $validate->set_message('is_required', 'Selecione uma opção para o campo %s');
-        $validate->set('le', $this->le)->is_required()
-                ->set('escreve', $this->escreve)->is_required()
-                ->set('fala', $this->fala)->is_required()
-                ->set('entende', $this->entende)->is_required();
+        $validate->set('nomemarca', $this->nomemarca)->is_required();
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
