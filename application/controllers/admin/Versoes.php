@@ -22,7 +22,7 @@ class Versoes extends MY_Controller {
     
     public function index()
     {
-        $this->_data['versoes'] = $this->versao->findAll();
+        $this->_data['versoes'] = $this->versao->get_versoes();
         $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
         $this->view('versoes', $this->_data);
     }
@@ -30,7 +30,7 @@ class Versoes extends MY_Controller {
     public function adicionar()
     {
         if($this->input->post()){
-            $this->versao = $this->modelo->post_to($this->input->post(), $this->versao);
+            $this->versao = $this->versao->post_to($this->input->post(), $this->versao);
             try{
                 $this->versao->save();
                 $this->session->set_flashdata('msg', 'Versao salva com sucesso');
@@ -43,6 +43,7 @@ class Versoes extends MY_Controller {
         }
         $this->_data['versao'] = $this->versao;
         $this->_data['marcas'] = $this->marca->get_marcas_array();
+        $this->_data['modelos'] = array();
         
         $this->_data['sub_title'] = 'Adicionar novo versao';
         $this->_data['action'] = 'Adicionar'; //Como Add e Editar sao no mesmo form, essa var será usada no botao de submit
@@ -59,7 +60,7 @@ class Versoes extends MY_Controller {
             $this->versao = $this->versao->post_to($this->input->post(), $this->versao);
             try{
                 $this->versao->save();
-                $this->session->set_flashdata('msg', 'Modelo atualizada com sucesso');
+                $this->session->set_flashdata('msg', 'Versao atualizada com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
                 admin_redirect('versoes');
             } catch (Exception $ex) {
@@ -67,10 +68,12 @@ class Versoes extends MY_Controller {
                 $this->session->set_flashdata('msgstatus', 'error');
             }
         }
-        $this->_data['versao'] = $this->modelo->find($id);
+        $this->_data['versao'] = $this->versao->get_versao_by_id($id);
+        $this->_data['marcas'] = $this->marca->get_marcas_array();
+        $this->_data['modelos'] = $this->modelo->get_modelos_by_marca_array($this->_data['versao']->marca_idmarca);
         
         $this->_data['sub_title'] = 'Editar Versao';
         $this->_data['action'] = 'Atualizar';
-        $this->view('versao_form', $this->_data);
+        $this->view('versoes_form', $this->_data);
     }
 }

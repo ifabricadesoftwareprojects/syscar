@@ -71,7 +71,7 @@ class Modelos extends MY_Controller {
         
         $this->_data['sub_title'] = 'Editar Modelo';
         $this->_data['action'] = 'Atualizar';
-        $this->view('modelo_form', $this->_data);
+        $this->view('modelos_form', $this->_data);
     }
     
     public function buscar()

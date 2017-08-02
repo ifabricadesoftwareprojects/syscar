@@ -37,6 +37,27 @@
             throw new Exception();
         }
     }
+    public function get_versoes()
+    {
+        //Consulta Modelo JOIN Marca!!!
+         return $this->db
+                        ->from('versao v')  
+                        ->join('modelo mo', 'mo.idmodelo = v.modelo_idmodelo')  
+                        ->join('marca ma', 'ma.idmarca = mo.marca_idmarca')
+                        ->get()
+                        ->result();
+    }
+    public function get_versao_by_id($idversao)
+    {
+        //Consulta Modelo JOIN Marca!!!
+         return $this->db
+                        ->from('versao v')  
+                        ->join('modelo mo', 'mo.idmodelo = v.modelo_idmodelo')  
+                        ->join('marca ma', 'ma.idmarca = mo.marca_idmarca')
+                        ->where('v.idversao', $idversao)
+                        ->get()
+                         ->row(0, $this->model);
+    }
 
         public function validar_dados()
     {
