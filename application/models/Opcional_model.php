@@ -11,7 +11,7 @@
  *
  * @author Aluno
  */
-class opcional_model {
+class opcional_model extends MY_Model{
     //put your code here
     protected $table = 'opcional';
     protected $pk = 'idopcional';

@@ -50,19 +50,19 @@
                 </li>
                 <li<?php echo ($active == 'marcas' ? ' class="active"' : '') ?>>
                     <a href="<?php echo admin_link('marcas') ?>">
-                        <i class="pe-7s-note"></i>
+                        <i class="pe-7s-car"></i>
                         <p>Marcas</p>
                     </a>
                 </li>
                 <li<?php echo ($active == 'modelos' ? ' class="active"' : '') ?>>
                     <a href="<?php echo admin_link('modelos') ?>">
-                        <i class="pe-7s-note"></i>
+                        <i class="pe-7s-box2"></i>
                         <p>Modelos</p>
                     </a>
                 </li>
                 <li<?php echo ($active == 'versoes' ? ' class="active"' : '') ?>>
                     <a href="<?php echo admin_link('versoes') ?>">
-                        <i class="pe-7s-note"></i>
+                        <i class="pe-7s-config"></i>
                         <p>Versões</p>
                     </a>
                 </li>

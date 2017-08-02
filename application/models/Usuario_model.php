@@ -11,7 +11,7 @@
  *
  * @author Aluno
  */
-class Usuario_model {
+class Usuario_model extends MY_Model{
     //put your code here
     protected $table = 'usuario';
     protected $pk = 'idusuario';
@@ -27,14 +27,6 @@ class Usuario_model {
         parent::__construct();
     }
     
-    public function insert() {
-        try {
-            $this->validar_dados();
-            parent::insert();
-        } catch (Exception $ex) {
-            throw new Exception();
-        }
-    }
     public function validar_dados()
     {
         $CI =& get_instance();

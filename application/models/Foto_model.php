@@ -11,7 +11,7 @@
  *
  * @author Aluno
  */
-class Foto_model {
+class Foto_model extends MY_Model{
     //put your code here
     protected $table = 'foto';
     protected $pk = 'idfoto';
