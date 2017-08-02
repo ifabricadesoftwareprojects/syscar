@@ -73,4 +73,17 @@ class Modelo_model extends MY_Model{
         }
         return $modelos;
     }
+    public function get_modelos_array()
+    {
+        $rs = $this->db->get($this->table)
+                ->result();
+        
+        $modelos = array();
+        if(is_array($rs)){
+            foreach ($rs as $reg){
+                $modelos[$reg->idmodelo] = $reg->nomemodelo;
+            }
+        }
+        return $modelos;
+    }
 }
