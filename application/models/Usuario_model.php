@@ -27,6 +27,14 @@ class Usuario_model {
         parent::__construct();
     }
     
+    public function insert() {
+        try {
+            $this->validar_dados();
+            parent::insert();
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
     public function validar_dados()
     {
         $CI =& get_instance();
