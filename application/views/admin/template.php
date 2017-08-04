@@ -66,6 +66,12 @@
                         <p>Versões</p>
                     </a>
                 </li>
+                <li<?php echo ($active == 'usuarios' ? ' class="active"' : '') ?>>
+                    <a href="<?php echo admin_link('usuarios') ?>">
+                        <i class="pe-7s-users"></i>
+                        <p>Usuarios </p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>

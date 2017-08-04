@@ -27,6 +27,15 @@ class Usuario_model extends MY_Model{
         parent::__construct();
     }
     
+    public function insert() {
+        try {
+            $this->validar_dados();
+            parent::insert();
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
+    
     public function validar_dados()
     {
         $CI =& get_instance();
@@ -35,7 +44,7 @@ class Usuario_model extends MY_Model{
         
         $validate->set('nome', $this->nome)->is_required();
         $validate->set('email', $this->email)->is_required()->is_email();
-        $validate->set('senha', $this->senha)->is_required();
+        $validate->set('senha', $this->senha)->is_required()->min_length(7);
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();

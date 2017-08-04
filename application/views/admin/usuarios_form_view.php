@@ -18,7 +18,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Senha</label>
-                                        <input type="text" name="senha" class="form-control" placeholder="************" value="<?php echo $usuario->senha ?>">
+                                        <input type="password" name="senha" class="form-control" placeholder="************" value="<?php echo $usuario->senha ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirmar Senha</label>
+                                        <input type="password" <!--name="senha" class="form-control" placeholder="************" value="<?php echo $usuario->senha ?>"-->
                                     </div>
                                     <button type="submit" class="btn btn-info btn-fill"><?php echo $action ?></button>
                                     <div class="clearfix"></div>

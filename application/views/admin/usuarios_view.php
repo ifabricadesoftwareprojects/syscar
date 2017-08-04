@@ -9,7 +9,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-9">
-                                <a href="<?php echo admin_link('usuario/adicionar') ?>" class="btn btn-primary" title="">Adicionar usuario</a>
+                                <a href="<?php echo admin_link('usuarios/adicionar') ?>" class="btn btn-primary" title="">Adicionar usuario</a>
                             </div>
                              <div class="col-md-3">
                                  <form class="form-inline">
@@ -26,12 +26,14 @@
                             <thead>
                                 <th>#</th>
                                 <th>Nome</th>
+                                <th>Email</th>
                             </thead>
                             <tbody>
                                 <?php foreach ($usuarios as $usuario) : ?>
                                 <tr>
                                     <td><?php echo $usuario->idusuario ?></td>
                                     <td><?php echo $usuario->nome ?></td>
+                                    <td><?php echo $usuario->email ?></td>
                                     <td><a href="<?php echo admin_link('usuarios/editar/' . $usuario->idusuario) ?>" class="btn">Editar</a></td>
                                 </tr>
                                 <?php endforeach; ?>
