@@ -22,7 +22,7 @@ class Usuario_model extends MY_Model{
     public $senha;
     public $perfil;
     public $token;
-    
+ 
     public function __construct() {
         parent::__construct();
     }
@@ -42,9 +42,9 @@ class Usuario_model extends MY_Model{
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
         
-        $validate->set('nome', $this->nome)->is_required();
-        $validate->set('email', $this->email)->is_required()->is_email();
-        $validate->set('senha', $this->senha)->is_required()->min_length(7);
+        $validate->set('nome', $this->nome)->is_required()->min_length(3)->max_length(75)
+                 ->set('email', $this->email)->is_required()->is_email()
+                 ->set('senha', $this->senha)->is_required()->min_length(7);//falta confirmaar senha
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
