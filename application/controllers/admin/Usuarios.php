@@ -36,7 +36,7 @@ class Usuarios extends MY_Controller{
         if($this->input->post()){
             $this->usuario = $this->usuario->post_to($this->input->post(), $this->usuario);
             try{
-                $this->usuario->insert();
+                $this->usuario->insert($this->input->post('confirmar'));
                 $this->session->set_flashdata('msg', 'Usuario salvo com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
                 admin_redirect('usuarios');
