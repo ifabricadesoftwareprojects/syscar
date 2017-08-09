@@ -36,12 +36,22 @@ class Usuario_model extends MY_Model{
         }
     }
     
+    public function update($field, $value,$confirmar = '') {
+        try {
+            $this->validar_dados($confirmar);
+            parent::update($field, $value);
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
+    
     public function validar_dados($confirmar)
     {
         //falta a customizar a mensagem
         $CI =& get_instance();
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
+        $validate->set_message('is_equals', 'A senha é inválida');
         
         $validate->set('nome', $this->nome)->is_required()->min_length(3)->max_length(75)
                  ->set('email', $this->email)->is_required()->is_email()

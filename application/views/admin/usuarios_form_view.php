@@ -20,12 +20,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Senha</label>
-                                <input type="password" name="senha" class="form-control" placeholder="************" value="<?php echo $usuario->senha ?>"<?php echo (isset($dados_usuario) ? $dados_usuario['senha'] : '') ?>>
+                                <input type="password" name="senha" class="form-control" placeholder="************" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['senha'] : '') ?>>
                                 <?php echo display_erros(isset($erros['senha']) ? $erros['senha'] : null) ?>
                             </div>
                             <div class="form-group">
                                 <label>Confirmar Senha</label>
-                                <input type="password" name="confirmar" class="form-control" placeholder="************" value="<?php echo $usuario->senha ?>"<?php echo (isset($dados_usuario) ? $dados_usuario['confirmar'] : '') ?>>
+                                <input type="password" name="confirmar" class="form-control" placeholder="************" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['confirmar'] : '') ?>>
                                 <?php echo display_erros(isset($erros['confirmar']) ? $erros['confirmar'] : null) ?>
                             </div>
                             <button type="submit" class="btn btn-info btn-fill"><?php echo $action ?></button>
