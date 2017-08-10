@@ -10,7 +10,8 @@
                                 <form method="post">
                                     <div class="form-group">
                                         <label>Nome da Marca</label>
-                                        <input type="text" name="nomemarca" class="form-control" placeholder="Nome da Marca" value="<?php echo $marca->nomemarca ?>">
+                                        <input type="text" name="nomemarca" class="form-control" placeholder="Nome da Marca" value="<?php echo $marca->nomemarca ?>"<?php echo (isset($dados_marca) ? $dados_marca['nomemarca'] : '') ?>>
+                                        <?php echo display_erros(isset($erros['nomemarca']) ? $erros['nomemarca'] : null) ?>
                                     </div>
                                     <button type="submit" class="btn btn-info btn-fill"><?php echo $action ?></button>
                                     <div class="clearfix"></div>

@@ -10,7 +10,7 @@
                         <form method="post">
                             <div class="form-group">
                                 <label>Nome do Usuario</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome do usuario" value="<?php echo $usuario->nome ?>"<?php echo (isset($dados_usuario) ? $dados_usuario['nome'] : '') ?>'>
+                                <input type="text" name="nome" class="form-control" placeholder="Nome do usuario" value="<?php echo $usuario->nome ?>"<?php echo (isset($dados_usuario) ? $dados_usuario['nome'] : '') ?>>
                                 <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
                             </div>
                             <div class="form-group">

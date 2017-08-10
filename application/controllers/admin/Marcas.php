@@ -29,12 +29,15 @@ class Marcas extends MY_Controller {
         if($this->input->post()){
             $this->marca = $this->marca->post_to($this->input->post(), $this->marca);
             try{
-                $this->marca->save();
+                $this->marca->insert();
                 $this->session->set_flashdata('msg', 'Marca salva com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
                 admin_redirect('marcas');
             } catch (Exception $ex) {
-                $this->session->set_flashdata('msg', 'Erro ao salvar marca:' . $this->users->get_erro());
+                $this->session->set_flashdata('abrir', 'Marca');
+                $this->session->set_flashdata('msg', 'Erro ao salvar marca:');
+                $this->session->set_flashdata('erro', $this->marca->get_erro());
+                $this->session->set_flashdata('dados', $this->input->post());
                 $this->session->set_flashdata('msgstatus', 'error');
             }
         }
@@ -42,6 +45,8 @@ class Marcas extends MY_Controller {
         
         $this->_data['sub_title'] = 'Adicionar nova marca';
         $this->_data['action'] = 'Adicionar'; //Como Add e Editar sao no mesmo form, essa var será usada no botao de submit
+        $this->_data['erros'] = $this->session->flashdata('erro');
+        $this->_data['dados_marca'] = $this->session->flashdata('dados');
         $this->view('marcas_form', $this->_data);
     }
     
@@ -54,12 +59,15 @@ class Marcas extends MY_Controller {
             $this->marca = $this->marca->find($id);
             $this->marca = $this->marca->post_to($this->input->post(), $this->marca);
             try{
-                $this->marca->save();
+                $this->marca->update('idmarca', $this->marca->idmarca);
                 $this->session->set_flashdata('msg', 'Marca atualizada com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
                 admin_redirect('marcas');
             } catch (Exception $ex) {
-                $this->session->set_flashdata('msg', 'Erro ao atualizar marca:' . $this->users->get_erro());
+                $this->session->set_flashdata('abrir', 'Marca');
+                $this->session->set_flashdata('msg', 'Erro ao atualizar marca:');
+                $this->session->set_flashdata('erro', $this->marca->get_erro());
+                $this->session->set_flashdata('dados', $this->input->post());
                 $this->session->set_flashdata('msgstatus', 'error');
             }
         }
@@ -67,6 +75,9 @@ class Marcas extends MY_Controller {
         
         $this->_data['sub_title'] = 'Editar Marca';
         $this->_data['action'] = 'Atualizar';
+        $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
+        $this->_data['erros'] = $this->session->flashdata('erro');
+        $this->_data['dados_marca'] = $this->session->flashdata('dados');
         $this->view('marcas_form', $this->_data);
     }
 }
