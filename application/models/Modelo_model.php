@@ -33,6 +33,14 @@ class Modelo_model extends MY_Model{
             throw new Exception();
         }
     }
+    public function update($field, $value,$confirmar = '') {
+        try {
+            $this->validar_dados($confirmar);
+            parent::update($field, $value);
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
 
         public function validar_dados()
     {

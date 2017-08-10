@@ -37,6 +37,14 @@
             throw new Exception();
         }
     }
+    public function update($field, $value,$confirmar = '') {
+        try {
+            $this->validar_dados($confirmar);
+            parent::update($field, $value);
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
     public function get_versoes()
     {
         //Consulta Modelo JOIN Marca!!!

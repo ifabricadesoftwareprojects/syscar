@@ -31,12 +31,15 @@ class Modelos extends MY_Controller {
         if($this->input->post()){
             $this->modelo = $this->modelo->post_to($this->input->post(), $this->modelo);
             try{
-                $this->modelo->save();
+                $this->modelo->insert($this->input->post('confirmar'));
                 $this->session->set_flashdata('msg', 'Modelo salva com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
                 admin_redirect('modelos');
             } catch (Exception $ex) {
-                $this->session->set_flashdata('msg', 'Erro ao salvar modelo:' . $this->users->get_erro());
+                $this->session->set_flashdata('abrir', 'Modelo');
+                $this->session->set_flashdata('msg', 'Erro ao salvar modelo:');
+                $this->session->set_flashdata('erro', $this->modelo->get_erro());
+                $this->session->set_flashdata('dados', $this->input->post());
                 $this->session->set_flashdata('msgstatus', 'error');
             }
         }
@@ -45,6 +48,11 @@ class Modelos extends MY_Controller {
         
         $this->_data['sub_title'] = 'Adicionar novo modelo';
         $this->_data['action'] = 'Adicionar'; //Como Add e Editar sao no mesmo form, essa var será usada no botao de submit
+        
+        $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
+        $this->_data['erros'] = $this->session->flashdata('erro');
+        $this->_data['dados_modelo'] = $this->session->flashdata('dados');
+        
         $this->view('modelos_form', $this->_data);
     }
     
@@ -57,13 +65,18 @@ class Modelos extends MY_Controller {
             $this->modelo = $this->modelo->find($id);
             $this->modelo = $this->modelo->post_to($this->input->post(), $this->modelo);
             try{
-                $this->modelo->save();
+                $this->modelo->update('idmodelo', $this->modelo->idmodelo, $this->input->post('confirmar'));
                 $this->session->set_flashdata('msg', 'Modelo atualizada com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
                 admin_redirect('modelos');
             } catch (Exception $ex) {
-                $this->session->set_flashdata('msg', 'Erro ao atualizar modelo:' . $this->users->get_erro());
+                
+                $this->session->set_flashdata('abrir', 'Modelo');
+                $this->session->set_flashdata('msg', 'Erro ao atualizar usuario:');
+                $this->session->set_flashdata('erro', $this->modelo->get_erro());
+                $this->session->set_flashdata('dados', $this->input->post());
                 $this->session->set_flashdata('msgstatus', 'error');
+                
             }
         }
         $this->_data['modelo'] = $this->modelo->find($id);
@@ -71,6 +84,9 @@ class Modelos extends MY_Controller {
         
         $this->_data['sub_title'] = 'Editar Modelo';
         $this->_data['action'] = 'Atualizar';
+        $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
+        $this->_data['erros'] = $this->session->flashdata('erro');
+        $this->_data['dados_modelo'] = $this->session->flashdata('dados');
         $this->view('modelos_form', $this->_data);
     }
     
