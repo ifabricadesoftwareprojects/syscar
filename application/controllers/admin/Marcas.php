@@ -11,6 +11,11 @@ class Marcas extends MY_Controller {
     
     public function __construct() {
         parent::__construct();
+        //Verifica "porcamente" se o usuário está autenticado!!!=)
+        if (!isset($this->session->token)) {
+            redirect('admin/login');
+        }
+        
         $this->load->model('marca_model', 'marca');
         
         $this->_data['active'] = 'marcas';

@@ -30,6 +30,8 @@ class Usuario_model extends MY_Model{
     public function insert($confirmar = '') {
         try {
             $this->validar_dados($confirmar);
+            $this->senha = md5($this->senha);
+            $this->token = md5(date('YmdHis'));
             parent::insert();
         } catch (Exception $ex) {
             throw new Exception();
@@ -61,5 +63,29 @@ class Usuario_model extends MY_Model{
             $this->erro = $validate->get_errors();
             throw new Exception('Erro ao validar os dados');
         }
+    }
+    
+    public function autenticar()
+    {
+        if(empty($this->email) || empty($this->senha)){
+            return false;
+        }
+        //Criptografa a senha
+        $this->senha = md5($this->senha);
+        $usuario =  $this->db
+                ->select('nome, token, perfil')
+                ->from('usuario u')
+                ->where('email', $this->email)
+                ->where('senha', $this->senha)
+                ->get()
+                ->row(0, $this->model);
+        if(!is_object($usuario)){
+            return false;
+        }
+        
+        $this->nome = $usuario->nome;
+        $this->token = $usuario->token;
+        $this->perfil = $usuario->perfil;
+        return true;
     }
 }

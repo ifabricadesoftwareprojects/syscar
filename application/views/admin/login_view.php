@@ -11,7 +11,6 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="<?php echo link_assets('admin/css/bootstrap.min.css') ?>" rel="stylesheet" />
-
 </head>
 <body>    
 
@@ -19,48 +18,43 @@
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                        <div class="panel-title">Formulário de Login</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Esqueci minha senha</a></div>
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >
-
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                            
-                        <form id="loginform" class="form-horizontal" role="form">
-                                    
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
-                                    </div>
-                                
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                                    </div>
-                                    
 
-                                
+                        <form method="post" id="loginform" class="form-horizontal" role="form">
+                            <p><?php echo $msg; ?></p>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="login-email" type="text" class="form-control" name="email" value="" placeholder="email">                                        
+                            </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="login-senha" type="password" class="form-control" name="senha" placeholder="senha">
+                            </div>
+
                             <div class="input-group">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                        </label>
-                                      </div>
-                                    </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input id="login-remember" type="checkbox" name="remember" value="1"> Lembrar-me
+                                  </label>
+                                </div>
+                            </div>
 
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
 
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
-
-                                    <div class="col-sm-12 controls">
-                                      <a id="btn-login" href="#" class="btn btn-success">Login  </a>
-
-                                    </div>
-                                </div>  
-                            </form>     
-                        </div>                     
-                    </div>  
+                                <div class="col-sm-12 controls">
+                                    <button type="submit" id="btn-login" class="btn btn-success">Login</button>
+                                </div>
+                            </div>  
+                        </form>     
+                    </div>                     
+            </div>  
         </div>
     </div>
 </body>
