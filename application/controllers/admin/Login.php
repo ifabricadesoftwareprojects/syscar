@@ -4,7 +4,9 @@
  *
  * @author rafael
  */
-class Login extends CI_Controller {
+class Login extends MY_Controller {
+    protected $_template_folder = 'admin';
+    protected $_data = array();
     
     public function __construct() {
         parent::__construct();
@@ -12,6 +14,6 @@ class Login extends CI_Controller {
     
     public function index()
     {
-        echo 'Hello World!!!';
+        $this->view('login', $this->_data, null);
     }
 }
