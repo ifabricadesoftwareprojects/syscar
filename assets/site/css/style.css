@@ -545,7 +545,6 @@ blockquote,
 }
 .select::after {
   color: #878787;
-  content: "ï„‡";
   cursor: pointer;
   font-family: fontawesome;
   font-size: 15px;
@@ -1828,7 +1827,6 @@ nav.navbar {
   position: relative;
 }
 .footer-top ul li a::after {
-  content: "ï„…";
   font-family: fontawesome;
   left: 0;
   position: absolute;
@@ -2312,7 +2310,6 @@ form .slider.slider-horizontal {
 }
 .coustom-breadcrumb a::after {
   color: #fff;
-  content: "ï„…";
   font-family: fontawesome;
   position: absolute;
   right: -5px;
@@ -2846,7 +2843,6 @@ table.info-tabel tr td {
 	left:inherit;
 }
 .slick-arrow::after {
-  content: "ï„…";
   font-family: fontawesome;
   font-size: 34px;
 }
