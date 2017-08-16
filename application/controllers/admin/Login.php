@@ -28,7 +28,7 @@ class Login extends MY_Controller {
                             'perfil' => $this->usuario_model->perfil 
                         )
                     );
-                redirect('admin/marcas');
+                redirect('admin/home');
             }
             else{
                 $this->_data['msg'] = 'Email e/ou senha incorretos';
