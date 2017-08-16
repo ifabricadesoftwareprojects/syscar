@@ -56,14 +56,20 @@ class Modelo_model extends MY_Model{
         }
     }
     
-    public function get_modelos()
+    public function get_modelos($nome = null)
     {
         //Consulta Modelo JOIN Marca!!!
-         return $this->db
-                        ->from('modelo mo')
-                        ->join('marca ma', 'ma.idmarca = mo.marca_idmarca')
-                        ->get()
-                        ->result();
+        $query = $this->db
+                ->from('modelo mo')
+                        ->join('marca ma', 'ma.idmarca = mo.marca_idmarca');
+                        
+        
+        if($nome != null)
+        {
+            $query = $query->like('mo.nomemodelo', $nome);
+        }
+        return $query->get()->result();       
+       
     }
     
      public function get_modelos_by_marca_array($marca_idmarca)

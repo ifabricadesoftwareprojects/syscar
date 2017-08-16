@@ -26,7 +26,7 @@ class Modelos extends MY_Controller {
     
     public function index()
     {
-        $this->_data['modelos'] = $this->modelo->get_modelos();
+        $this->_data['modelos'] = $this->modelo->get_modelos($this->input->get('q'));
         $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
         $this->view('modelos', $this->_data);
     }

@@ -24,7 +24,7 @@ class Marcas extends MY_Controller {
     
     public function index()
     {
-        $this->_data['marcas'] = $this->marca->findAll();
+        $this->_data['marcas'] = $this->marca->get_marcas($this->input->get('q'));
         $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
         $this->view('marcas', $this->_data);
     }

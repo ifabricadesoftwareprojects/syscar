@@ -45,16 +45,23 @@
             throw new Exception();
         }
     }
-    public function get_versoes()
+    public function get_versoes($nome = null)
     {
         //Consulta Modelo JOIN Marca!!!
          return $this->db
                         ->from('versao v')  
-                        ->join('modelo mo', 'mo.idmodelo = v.modelo_idmodelo')  
-                        ->join('marca ma', 'ma.idmarca = mo.marca_idmarca')
-                        ->get()
-                        ->result();
+                            ->join('modelo mo', 'mo.idmodelo = v.modelo_idmodelo')  
+                            ->join('marca ma', 'ma.idmarca = mo.marca_idmarca');
+         
+        if($nome != null)
+        {
+            $query =   $query->like('v.descricaoversao', $nome);                    
+        }
+          return $query->get()->result(); 
+                        
     }
+    
+    
     public function get_versao_by_id($idversao)
     {
         //Consulta Modelo JOIN Marca!!!

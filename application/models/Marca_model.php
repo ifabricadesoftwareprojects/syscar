@@ -68,4 +68,19 @@ class Marca_model extends MY_Model{
         }
         return $marcas;
     }
+    
+    public function get_marcas($nome = null)
+    {
+        //Consulta Modelo JOIN Marca!!!
+        $query = $this->db
+                ->from('marca ma');
+                
+                       
+        if($nome != null)
+        {
+            $query = $query->like('ma.nomemarca', $nome);
+        }
+        return $query->get()->result();       
+       
+    }
 }

@@ -27,7 +27,7 @@ class Versoes extends MY_Controller {
     
     public function index()
     {
-        $this->_data['versoes'] = $this->versao->get_versoes();
+        $this->_data['versoes'] = $this->versao->get_versoes($this->input->get('q'));
         $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
         $this->view('versoes', $this->_data);
     }
