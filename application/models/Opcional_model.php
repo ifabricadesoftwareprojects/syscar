@@ -18,7 +18,7 @@ class opcional_model extends MY_Model{
     
     public $idopcional;
     public $descricaoopcional;
-    public $modelo_idmodelo;
+    public $anuncio_idanuncio;
     
     
     public function __construct() {

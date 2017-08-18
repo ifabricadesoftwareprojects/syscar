@@ -21,7 +21,6 @@ class Anuncio_model extends MY_Model{
     public $dataexpiracao;
     public $statusanuncio;
     public $descricaoanuncio;
-    public $modelo_idmodelo;
     public $km;
     public $anofab;
     public $anomodelo;
@@ -29,6 +28,7 @@ class Anuncio_model extends MY_Model{
     public $unicodono;
     public $valor;
     public $usuario_idusuario;
+    public $versao_idversao;
     
     public function __construct() {
         parent::__construct();

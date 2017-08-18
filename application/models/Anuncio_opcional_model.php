@@ -11,14 +11,15 @@
  *
  * @author Aluno
  */
-class modelo_opcional_model extends MY_Model{
+class Anuncio_opcional_model extends MY_Model{
     //put your code here
-    protected $table = 'modelo_opcional';
+    protected $table = 'anuncio_opcional';
     protected $pk = 'opcional_idopcional';
-    protected $pk = 'modelo_idmodelo';
+    protected $pk = 'anuncio_idanuncio';
     
+    public $anuncio_idanuncio;
     public $opcional_idopcional;
-    public $modelo_idmodelo;
+    
     
     
     
