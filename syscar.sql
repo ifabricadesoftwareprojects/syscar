@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Ago-2017 às 16:58
--- Versão do servidor: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: 18-Ago-2017 às 18:36
+-- Versão do servidor: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `syscar`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `anuncio`
 --
 
-CREATE TABLE `anuncio` (
-  `idanuncio` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `anuncio` (
+  `idanuncio` int(11) NOT NULL AUTO_INCREMENT,
   `dataanuncio` date DEFAULT NULL,
   `dataexpiracao` date DEFAULT NULL,
   `statusanuncio` varchar(20) DEFAULT NULL,
@@ -39,8 +39,11 @@ CREATE TABLE `anuncio` (
   `unicodono` varchar(45) DEFAULT NULL,
   `valor` double DEFAULT NULL,
   `usuario_idusuario` int(11) NOT NULL,
-  `versao_idversao` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `versao_idversao` int(11) NOT NULL,
+  PRIMARY KEY (`idanuncio`),
+  KEY `fk_anuncio_usuario1_idx` (`usuario_idusuario`),
+  KEY `fk_anuncio_versao1` (`versao_idversao`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -48,9 +51,12 @@ CREATE TABLE `anuncio` (
 -- Estrutura da tabela `anuncio_opcional`
 --
 
-CREATE TABLE `anuncio_opcional` (
+CREATE TABLE IF NOT EXISTS `anuncio_opcional` (
   `anuncio_idanuncio` int(11) NOT NULL,
-  `opcional_idopcional` int(11) NOT NULL
+  `opcional_idopcional` int(11) NOT NULL,
+  PRIMARY KEY (`anuncio_idanuncio`,`opcional_idopcional`),
+  KEY `fk_anuncio_has_opcional_opcional1` (`opcional_idopcional`),
+  KEY `fk_anuncio_has_opcional_anuncio1` (`anuncio_idanuncio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,9 +65,11 @@ CREATE TABLE `anuncio_opcional` (
 -- Estrutura da tabela `concessionaria`
 --
 
-CREATE TABLE `concessionaria` (
+CREATE TABLE IF NOT EXISTS `concessionaria` (
   `usuario_idusuario` int(11) NOT NULL,
-  `cnpj` varchar(45) DEFAULT NULL
+  `cnpj` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`usuario_idusuario`),
+  KEY `fk_concessionaria_usuario1_idx` (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -70,11 +78,13 @@ CREATE TABLE `concessionaria` (
 -- Estrutura da tabela `foto`
 --
 
-CREATE TABLE `foto` (
-  `idfoto` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `foto` (
+  `idfoto` int(11) NOT NULL AUTO_INCREMENT,
   `caminhofoto` varchar(150) DEFAULT NULL,
-  `anuncio_idanuncio` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `anuncio_idanuncio` int(11) NOT NULL,
+  PRIMARY KEY (`idfoto`),
+  KEY `fk_fotos_anuncio1_idx` (`anuncio_idanuncio`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -82,10 +92,11 @@ CREATE TABLE `foto` (
 -- Estrutura da tabela `marca`
 --
 
-CREATE TABLE `marca` (
-  `idmarca` int(11) NOT NULL,
-  `nomemarca` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `marca` (
+  `idmarca` int(11) NOT NULL AUTO_INCREMENT,
+  `nomemarca` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idmarca`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=535 ;
 
 --
 -- Extraindo dados da tabela `marca`
@@ -246,11 +257,13 @@ INSERT INTO `marca` (`idmarca`, `nomemarca`) VALUES
 -- Estrutura da tabela `modelo`
 --
 
-CREATE TABLE `modelo` (
-  `idmodelo` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `modelo` (
+  `idmodelo` int(11) NOT NULL AUTO_INCREMENT,
   `nomemodelo` varchar(45) DEFAULT NULL,
-  `marca_idmarca` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `marca_idmarca` int(11) NOT NULL,
+  PRIMARY KEY (`idmodelo`),
+  KEY `fk_modelo_marca_idx` (`marca_idmarca`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5029 ;
 
 --
 -- Extraindo dados da tabela `modelo`
@@ -1494,11 +1507,12 @@ INSERT INTO `modelo` (`idmodelo`, `nomemodelo`, `marca_idmarca`) VALUES
 -- Estrutura da tabela `opcional`
 --
 
-CREATE TABLE `opcional` (
-  `idopcional` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `opcional` (
+  `idopcional` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoopcional` varchar(45) DEFAULT NULL,
-  `modelo_idmodelo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `anuncio_idanuncio` int(11) NOT NULL,
+  PRIMARY KEY (`idopcional`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1506,14 +1520,15 @@ CREATE TABLE `opcional` (
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `idusuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(75) DEFAULT NULL,
   `email` varchar(75) DEFAULT NULL,
   `senha` varchar(32) DEFAULT NULL,
   `perfil` varchar(20) DEFAULT NULL,
-  `token` varchar(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `token` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`idusuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -1528,121 +1543,18 @@ INSERT INTO `usuario` (`idusuario`, `nome`, `email`, `senha`, `perfil`, `token`)
 -- Estrutura da tabela `versao`
 --
 
-CREATE TABLE `versao` (
-  `idversao` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `versao` (
+  `idversao` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoversao` varchar(75) DEFAULT NULL,
   `motor` char(5) DEFAULT NULL,
   `combustivel` varchar(20) DEFAULT NULL,
   `portas` char(2) DEFAULT NULL,
   `cambio` varchar(20) DEFAULT NULL,
-  `modelo_idmodelo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `anuncio_idanuncio` int(11) NOT NULL,
+  PRIMARY KEY (`idversao`),
+  KEY `fk_versao_modelo1_idx` (`anuncio_idanuncio`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `anuncio`
---
-ALTER TABLE `anuncio`
-  ADD PRIMARY KEY (`idanuncio`),
-  ADD KEY `fk_anuncio_usuario1_idx` (`usuario_idusuario`),
-  ADD KEY `fk_anuncio_versao1` (`versao_idversao`);
-
---
--- Indexes for table `anuncio_opcional`
---
-ALTER TABLE `anuncio_opcional`
-  ADD PRIMARY KEY (`anuncio_idanuncio`,`opcional_idopcional`),
-  ADD KEY `fk_anuncio_has_opcional_opcional1` (`opcional_idopcional`),
-  ADD KEY `fk_anuncio_has_opcional_anuncio1` (`anuncio_idanuncio`);
-
---
--- Indexes for table `concessionaria`
---
-ALTER TABLE `concessionaria`
-  ADD PRIMARY KEY (`usuario_idusuario`),
-  ADD KEY `fk_concessionaria_usuario1_idx` (`usuario_idusuario`);
-
---
--- Indexes for table `foto`
---
-ALTER TABLE `foto`
-  ADD PRIMARY KEY (`idfoto`),
-  ADD KEY `fk_fotos_anuncio1_idx` (`anuncio_idanuncio`);
-
---
--- Indexes for table `marca`
---
-ALTER TABLE `marca`
-  ADD PRIMARY KEY (`idmarca`);
-
---
--- Indexes for table `modelo`
---
-ALTER TABLE `modelo`
-  ADD PRIMARY KEY (`idmodelo`),
-  ADD KEY `fk_modelo_marca_idx` (`marca_idmarca`);
-
---
--- Indexes for table `opcional`
---
-ALTER TABLE `opcional`
-  ADD PRIMARY KEY (`idopcional`);
-
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusuario`);
-
---
--- Indexes for table `versao`
---
-ALTER TABLE `versao`
-  ADD PRIMARY KEY (`idversao`),
-  ADD KEY `fk_versao_modelo1_idx` (`modelo_idmodelo`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `anuncio`
---
-ALTER TABLE `anuncio`
-  MODIFY `idanuncio` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `foto`
---
-ALTER TABLE `foto`
-  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `marca`
---
-ALTER TABLE `marca`
-  MODIFY `idmarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=535;
---
--- AUTO_INCREMENT for table `modelo`
---
-ALTER TABLE `modelo`
-  MODIFY `idmodelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5029;
---
--- AUTO_INCREMENT for table `opcional`
---
-ALTER TABLE `opcional`
-  MODIFY `idopcional` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `versao`
---
-ALTER TABLE `versao`
-  MODIFY `idversao` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -1683,7 +1595,7 @@ ALTER TABLE `modelo`
 -- Limitadores para a tabela `versao`
 --
 ALTER TABLE `versao`
-  ADD CONSTRAINT `fk_versao_modelo1` FOREIGN KEY (`modelo_idmodelo`) REFERENCES `modelo` (`idmodelo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_versao_modelo1` FOREIGN KEY (`anuncio_idanuncio`) REFERENCES `modelo` (`idmodelo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
