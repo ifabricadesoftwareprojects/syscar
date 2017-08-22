@@ -60,6 +60,12 @@
                         <p>Modelos</p>
                     </a>
                 </li>
+                <li<?php echo ($active == 'opcionais' ? ' class="active"' : '') ?>>
+                    <a href="<?php echo admin_link('opcionais') ?>">
+                        <i class="pe-7s-diamond"></i>
+                        <p>Opcionais</p>
+                    </a>
+                </li>
                 <li<?php echo ($active == 'versoes' ? ' class="active"' : '') ?>>
                     <a href="<?php echo admin_link('versoes') ?>">
                         <i class="pe-7s-config"></i>

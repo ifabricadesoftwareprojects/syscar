@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Ago-2017 às 18:18
+-- Generation Time: 22-Ago-2017 às 19:23
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -1510,9 +1510,16 @@ INSERT INTO `modelo` (`idmodelo`, `nomemodelo`, `marca_idmarca`) VALUES
 CREATE TABLE IF NOT EXISTS `opcional` (
   `idopcional` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoopcional` varchar(45) DEFAULT NULL,
-  `anuncio_idanuncio` int(11) NOT NULL,
+  `anuncio_idanuncio` int(11) DEFAULT NULL,
   PRIMARY KEY (`idopcional`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `opcional`
+--
+
+INSERT INTO `opcional` (`idopcional`, `descricaoopcional`, `anuncio_idanuncio`) VALUES
+(1, 'Vidros Eletrico', NULL);
 
 -- --------------------------------------------------------
 
