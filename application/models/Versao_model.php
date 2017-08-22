@@ -22,7 +22,7 @@
     public $combustivel;
     public $portas;
     public $cambio;
-    public $anuncio_idanuncio;
+    public $modelo_idmodelo;
 
 
     public function __construct() {

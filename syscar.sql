@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Ago-2017 às 18:36
+-- Generation Time: 22-Ago-2017 às 18:18
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -1550,9 +1550,9 @@ CREATE TABLE IF NOT EXISTS `versao` (
   `combustivel` varchar(20) DEFAULT NULL,
   `portas` char(2) DEFAULT NULL,
   `cambio` varchar(20) DEFAULT NULL,
-  `anuncio_idanuncio` int(11) NOT NULL,
+  `modelo_idmodelo` int(11) NOT NULL,
   PRIMARY KEY (`idversao`),
-  KEY `fk_versao_modelo1_idx` (`anuncio_idanuncio`)
+  KEY `fk_versao_modelo1_idx` (`modelo_idmodelo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -1595,7 +1595,7 @@ ALTER TABLE `modelo`
 -- Limitadores para a tabela `versao`
 --
 ALTER TABLE `versao`
-  ADD CONSTRAINT `fk_versao_modelo1` FOREIGN KEY (`anuncio_idanuncio`) REFERENCES `modelo` (`idmodelo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_versao_modelo1` FOREIGN KEY (`modelo_idmodelo`) REFERENCES `modelo` (`idmodelo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
