@@ -17,6 +17,7 @@
                                         <label>Modelo</label>
                                         <?php echo form_dropdown('modelo_idmodelo', array_merge(array('0' => 'Selecione um modelo'), $modelos), $versao->modelo_idmodelo, 'class="form-control" id="cmbModelos"') ?>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label>Descrição</label>
                                         <input type="text" name="descricaoversao" class="form-control" placeholder="Descrição da versão" value="<?php echo $versao->descricaoversao ?>">

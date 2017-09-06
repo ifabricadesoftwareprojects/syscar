@@ -18,7 +18,7 @@
         <div class="profile_nav">
           <ul>
             <li><a href="profile-settings.html">Profile Settings</a></li>
-            <li><a href="my-vehicles.html">My Vehicles</a></li>
+            <li><a href="my-vehicles.html">Meus Veículos</a></li>
             <li class="active"><a href="post-vehicle.html">Post a Vehicles</a></li>
             <li><a href="#">Sign Out</a></li>
           </ul>
@@ -29,114 +29,67 @@
           <h5 class="uppercase underline">Post a New Vehicle</h5>
           <form action="#" method="get">
             <div class="form-group">
-              <label class="control-label">Vehicles Title</label>
-              <input class="form-control white_bg" id="VehiclesTitle" type="text">
+            <label>Marca</label>
+                <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), (isset($versao->marca_idmarca) ? $versao->marca_idmarca : ''), 'class="form-control" id="cmbMarcas"') ?>
             </div>
             <div class="form-group">
-              <label class="control-label">Select Make</label>
-              <div class="select">
-                <select class="form-control white_bg">
-                  <option>Select Brand</option>
-                  <option>Audi</option>
-                  <option>BMW</option>
-                  <option>Nissan</option>
-                  <option>Toyota</option>
-                </select>
-              </div>
+                <label>Modelo</label>
+                <?php echo form_dropdown('modelo_idmodelo', array_merge(array('0' => 'Selecione um modelo'), $modelos), $versao->modelo_idmodelo, 'class="form-control" id="cmbModelos"') ?>
+            </div>
+              
+              
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="descricaoanuncio" class="form-control" placeholder="Descrição do anuncio" value="<?php echo $anuncio->descricaoanuncio ?>">
+                <?php echo display_erros(isset($erros['descricaoanuncio']) ? $erros['descricaoanuncio'] : null) ?>
             </div>
             <div class="form-group">
-              <label class="control-label">Model</label>
-              <div class="select">
-                <select class="form-control white_bg">
-                  <option>Select Model</option>
-                  <option>Model 2</option>
-                  <option>Model 3</option>
-                  <option>Model 4</option>
-                </select>
-              </div>
-            </div>
+                <label>Quilometragem</label>
+                <input type="text" name="km" class="form-control" placeholder="Quilometragem do veiculo" value="<?php echo $anuncio->km ?>">
+                <?php echo display_erros(isset($erros['km']) ? $erros['km'] : null) ?>
+            </div> 
             <div class="form-group">
-              <label class="control-label">Vehicles Version</label>
-              <div class="select">
-                <select class="form-control white_bg">
-                  <option>Version</option>
-                  <option>Version 1.1</option>
-                  <option>Version 1.2</option>
-                </select>
-              </div>
-            </div>
+                <label>Ano de Fabricação</label>
+                <input type="text" name="anofab" class="form-control" placeholder="Ano de Fabricação" value="<?php echo $anuncio->anofab ?>">
+                <?php echo display_erros(isset($erros['anofab']) ? $erros['anofab'] : null) ?>
+            </div> 
+              
             <div class="form-group">
-              <label class="control-label">Vehicle Overview  Description</label>
-              <textarea class="form-control white_bg" rows="4"></textarea>
+                <label>Ano do Modelo</label>
+                <input type="text" name="anomodelo" class="form-control" placeholder="Ano do Modelo" value="<?php echo $anuncio->anomodelo ?>">
+                <?php echo display_erros(isset($erros['anomodelo']) ? $erros['anomodelo'] : null) ?>
             </div>
-            <div class="form-group">
-              <label class="control-label">Price ($)</label>
-              <input class="form-control white_bg" id="Price" type="text">
+              
+            <div class="form-group" align="left">
+                <label for="aceitatrocal">Aceita troca?</label></br>
+                
+                <label class="radio-inline">
+                    <input type="radio" name="aceitatrocal" value="Sim" /> Sim
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="aceitatrocal" value="Não" /> Não
+                </label>
+                <?php echo display_erros(isset($erros['aceitatrocal']) ? $erros['aceitatrocal'] : null) ?>
             </div>
-            <div class="form-group">
-              <label class="control-label">Upload Images  ( size = 900 x 560 )</label>
-              <div class="vehicle_images">
-                <div><img src="<?php echo link_assets('site/images/featured-img-1.jpg') ?>" alt="image"></div>
-                <div><img src="<?php echo link_assets('site/images/featured-img-2.jpg') ?>" alt="image"></div>
-                <div class="upload_more_img">
-                  <input name="upload" type="file">
-                </div>
-              </div>
-            </div>
-            <div class="gray-bg field-title">
-              <h6>Basic Info</h6>
-            </div>
-            <div class="form-group">
-              <label class="control-label">Model Year</label>
-              <input class="form-control white_bg" id="year" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">No. of Owners</label>
-              <input class="form-control white_bg" id="owners" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">KMs Driven</label>
-              <input class="form-control white_bg" id="kws" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Fuel Type</label>
-              <input class="form-control white_bg" id="fuel" type="text">
-            </div>
-            <div class="gray-bg field-title">
-              <h6>Technical Specification</h6>
-            </div>
-            <div class="form-group">
-              <label class="control-label">Engine Type</label>
-              <input class="form-control white_bg" id="engien" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Engine Description</label>
-              <input class="form-control white_bg" id="engien-description" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">No. of Cylinders</label>
-              <input class="form-control white_bg" id="cylinders" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Mileage-City</label>
-              <input class="form-control white_bg" id="mileage" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Mileage-Highway</label>
-              <input class="form-control white_bg" id="mileage-h" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Fuel Tank Capacity</label>
-              <input class="form-control white_bg" id="capacity" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Seating Capacity</label>
-              <input class="form-control white_bg" id="s-capacity" type="text">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Transmission Type</label>
-              <input class="form-control white_bg" id="Transmission" type="text">
-            </div>
+              
+            <div class="form-group" align="left">
+                <label for="unicodono">Unico dono?</label></br>
+                
+                <label class="radio-inline">
+                    <input type="radio" name="unicodono" value="Sim" /> Sim
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="unicodono" value="Não" /> Não
+                </label>
+                <?php echo display_erros(isset($erros['unicodono']) ? $erros['unicodono'] : null) ?>
+            </div>  
+              
+             <div class="form-group">
+                <label>Valor</label>
+                <input type="text" name="valor" class="form-control" placeholder="Valor" value="<?php echo $anuncio->valor ?>">
+                <?php echo display_erros(isset($erros['valor']) ? $erros['valor'] : null) ?>
+            </div>         
+     
             <div class="gray-bg field-title">
               <h6>Accessories</h6>
             </div>

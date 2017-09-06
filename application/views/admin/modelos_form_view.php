@@ -9,7 +9,10 @@
                             <div class="col-md-6">
                                 <form method="post">
                                     <div class="form-group">
-                                        <label>Nome da Modelo</label>
+                                        <label>Nome da Modelo</label><div class="form-group">
+                                        <label>Marca</label>
+                                        <?php echo form_dropdown('marca_idmarca', $marcas, $modelo->marca_idmarca, 'class="form-control"') ?>
+                                    </div>
                                         <input type="text" name="nomemodelo" class="form-control" placeholder="Nome da Modelo" value="<?php echo $modelo->nomemodelo ?>">
                                         <?php echo display_erros(isset($erros['nomemodelo']) ? $erros['nomemodelo'] : null) ?>
                                     </div>
