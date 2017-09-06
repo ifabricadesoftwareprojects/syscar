@@ -19,4 +19,9 @@ class Meus_veiculos extends MY_Controller {
     {
         $this->view('meus_veiculos', $this->_data);
     }
+    
+    public function adicionar()
+    {
+        $this->view('meus_veiculos_form', $this->_data);
+    }
 }
