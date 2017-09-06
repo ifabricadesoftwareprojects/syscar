@@ -80,11 +80,11 @@
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
         
-        $validate->set('descricaoversao', $this->descricaoversao)->is_required();
-        $validate->set('motor', $this->motor)->is_required();
-        $validate->set('combustivel', $this->combustivel)->is_required();
-        $validate->set('portas', $this->portas)->is_required();
-        $validate->set('cambio', $this->cambio)->is_required();
+        $validate->set('descricaoversao', $this->descricaoversao)->is_required()
+        ->set('motor', $this->motor)->is_required()
+        ->set('combustivel', $this->combustivel)->is_required()
+        ->set('portas', $this->portas)->is_required()
+        ->set('cambio', $this->cambio)->is_required();
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();

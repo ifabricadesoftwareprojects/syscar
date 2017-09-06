@@ -40,15 +40,15 @@ class Anuncio_model extends MY_Model{
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
         
-        $validate->set('dataanuncio', $this->dataanuncio)->is_required();
-        $validate->set('dataaexpiracao', $this->dataexpiracao)->is_required();
-        $validate->set('statusanuncio', $this->statusanuncio)->is_required();
-        $validate->set('descricaoanuncio', $this->descricaoanuncio)->is_required();
-        $validate->set('km', $this->km)->is_required()->is_float();
-        $validate->set('statusanuncio', $this->statusanuncio)->is_required();
-        $validate->set('anofab', $this->anofab)->is_required()->is_integer();
-        $validate->set('anomodelo', $this->anomodelo)->is_required()->is_integer();
-        $validate->set('valor', $this->valor)->is_required()->is_float();
+        $validate->set('dataanuncio', $this->dataanuncio)->is_required()
+        ->set('dataaexpiracao', $this->dataexpiracao)->is_required()
+        ->set('statusanuncio', $this->statusanuncio)->is_required()
+        ->set('descricaoanuncio', $this->descricaoanuncio)->is_required()
+        ->set('km', $this->km)->is_required()->is_float()
+        ->set('statusanuncio', $this->statusanuncio)->is_required()
+        ->set('anofab', $this->anofab)->is_required()->is_integer()
+        ->set('anomodelo', $this->anomodelo)->is_required()->is_integer()
+        ->set('valor', $this->valor)->is_required()->is_float();
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
