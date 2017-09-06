@@ -27,6 +27,7 @@
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Email</th>
+                                <th>Perfil</th>
                             </thead>
                             <tbody>
                                 <?php foreach ($usuarios as $usuario) : ?>
@@ -34,6 +35,7 @@
                                     <td><?php echo $usuario->idusuario ?></td>
                                     <td><?php echo $usuario->nome ?></td>
                                     <td><?php echo $usuario->email ?></td>
+                                    <td><?php echo $usuario->perfil ?></td>
                                     <td><a href="<?php echo admin_link('usuarios/editar/' . $usuario->idusuario) ?>" class="btn">Editar</a></td>
                                 </tr>
                                 <?php endforeach; ?>
