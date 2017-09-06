@@ -57,7 +57,8 @@ class Usuario_model extends MY_Model{
         
         $validate->set('nome', $this->nome)->is_required()->min_length(3)->max_length(75)
                  ->set('email', $this->email)->is_required()->is_email()
-                 ->set('senha', $this->senha)->is_required()->min_length(7)->is_equals($confirmar);
+                 ->set('senha', $this->senha)->is_required()->min_length(7)->is_equals($confirmar)
+                 ->set('perfil', $this->perfil)->is_required();
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
@@ -77,6 +78,7 @@ class Usuario_model extends MY_Model{
                 ->from('usuario u')
                 ->where('email', $this->email)
                 ->where('senha', $this->senha)
+                
                 ->get()
                 ->row(0, $this->model);
         if(!is_object($usuario)){
