@@ -24,6 +24,18 @@
                                 <?php echo display_erros(isset($erros['senha']) ? $erros['senha'] : null) ?>
                             </div>
                             <div class="form-group">
+                            <label for="perfil">Perfil:</label>
+                            <select name="sexo" class="form-control input-lg">
+                                <option value="Usuario"<?php echo $candidato->sexo == 'Usuario' ? ' selected' : '' ?>>Usuario</option>
+                                <option value="Administrador"<?php echo $candidato->sexo == 'Administrador' ? ' selected' : '' ?>>Administrador</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmar Senha</label>
+                                <input type="password" name="confirmar" class="form-control" placeholder="************" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['confirmar'] : '') ?>>
+                                <?php echo display_erros(isset($erros['confirmar']) ? $erros['confirmar'] : null) ?>
+                            </div>
+                            <div class="form-group">
                                 <label>Confirmar Senha</label>
                                 <input type="password" name="confirmar" class="form-control" placeholder="************" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['confirmar'] : '') ?>>
                                 <?php echo display_erros(isset($erros['confirmar']) ? $erros['confirmar'] : null) ?>
