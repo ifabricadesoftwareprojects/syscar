@@ -44,11 +44,11 @@ class Anuncio_model extends MY_Model{
         ->set('dataaexpiracao', $this->dataexpiracao)->is_required()
         ->set('statusanuncio', $this->statusanuncio)->is_required()
         ->set('descricaoanuncio', $this->descricaoanuncio)->is_required()
-        ->set('km', $this->km)->is_required()->is_float()
+        ->set('km', $this->km)->is_required()->is_integer()
         ->set('statusanuncio', $this->statusanuncio)->is_required()
         ->set('anofab', $this->anofab)->is_required()->is_integer()
         ->set('anomodelo', $this->anomodelo)->is_required()->is_integer()
-        ->set('valor', $this->valor)->is_required()->is_float();
+        ->set('valor', $this->valor)->is_required()->is_double();
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
