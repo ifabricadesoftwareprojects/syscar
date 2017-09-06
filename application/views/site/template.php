@@ -337,10 +337,12 @@
 </div>
 <!--/Forgot-password-Form --> 
 
-<!-- Scripts --> 
+<!-- Scripts -->
+<script src="<?php echo link_assets('admin/js/jquery-1.10.2.js') ?>" type="text/javascript"></script>
 <script src="<?php echo link_assets('site/js/jquery.min.js') ?>"></script>
 <script src="<?php echo link_assets('site/js/bootstrap.min.js') ?>"></script>
 <script src="<?php echo link_assets('site/js/interface.js') ?>"></script>
+<script src="<?php echo link_assets('admin/js/ajax.js') ?>" type="text/javascript"></script>
 <!--bootstrap-slider-JS-->
 <script src="<?php echo link_assets('site/js/bootstrap-slider.min.js') ?>"></script>
 <!--Slider-JS--> 

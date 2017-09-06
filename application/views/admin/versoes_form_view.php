@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <form method="post">
-                                    <input type="hidden" name="url" id="url" value="<?php echo site_url('admin/modelos/buscar') ?>" />
+                                    <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
                                     <div class="form-group">
                                         <label>Marca</label>
                                         <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), (isset($versao->marca_idmarca) ? $versao->marca_idmarca : ''), 'class="form-control" id="cmbMarcas"') ?>

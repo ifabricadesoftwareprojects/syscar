@@ -73,6 +73,22 @@
                         ->get()
                          ->row(0, $this->model);
     }
+    
+    public function get_versoes_by_modelo_array($modelo_idmodelo)
+    {
+        $rs = $this->db
+                ->where('modelo_idmodelo', $modelo_idmodelo)
+                ->get($this->table)
+                ->result();
+        
+        $versoes = array();
+        if(is_array($rs)){
+            foreach ($rs as $reg){
+                $versoes[$reg->idversao] = $reg->descricaoversao;
+            }
+        }
+        return $versoes;
+    }
 
         public function validar_dados()
     {

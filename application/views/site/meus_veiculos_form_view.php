@@ -26,37 +26,41 @@
       </div>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">Post a New Vehicle</h5>
+          <h5 class="uppercase underline">Adicionar um novo veículo</h5>
           <form action="#" method="get">
+              <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
             <div class="form-group">
             <label>Marca</label>
-                <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), (isset($versao->marca_idmarca) ? $versao->marca_idmarca : ''), 'class="form-control" id="cmbMarcas"') ?>
+                <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), '', 'class="form-control white_bg" id="cmbMarcas"') ?>
             </div>
             <div class="form-group">
                 <label>Modelo</label>
-                <?php echo form_dropdown('modelo_idmodelo', array_merge(array('0' => 'Selecione um modelo'), $modelos), $versao->modelo_idmodelo, 'class="form-control" id="cmbModelos"') ?>
+                <?php echo form_dropdown('modelo_idmodelo', array_merge(array('0' => 'Selecione um modelo'), $modelos), '', 'class="form-control white_bg" id="cmbModelos"') ?>
             </div>
-              
+            <div class="form-group">
+                <label>Versão</label>
+                <?php echo form_dropdown('versao', array_merge(array('0' => 'Selecione uma versão'), $modelos), '', 'class="form-control white_bg" id="cmbVersoes"') ?>
+            </div>
               
             <div class="form-group">
                 <label>Descrição</label>
-                <input type="text" name="descricaoanuncio" class="form-control" placeholder="Descrição do anuncio" value="<?php echo $anuncio->descricaoanuncio ?>">
+                <input type="text" name="descricaoanuncio" class="form-control" placeholder="Descrição do anuncio" value="">
                 <?php echo display_erros(isset($erros['descricaoanuncio']) ? $erros['descricaoanuncio'] : null) ?>
             </div>
             <div class="form-group">
                 <label>Quilometragem</label>
-                <input type="text" name="km" class="form-control" placeholder="Quilometragem do veiculo" value="<?php echo $anuncio->km ?>">
+                <input type="text" name="km" class="form-control" placeholder="Quilometragem do veiculo" value="">
                 <?php echo display_erros(isset($erros['km']) ? $erros['km'] : null) ?>
             </div> 
             <div class="form-group">
                 <label>Ano de Fabricação</label>
-                <input type="text" name="anofab" class="form-control" placeholder="Ano de Fabricação" value="<?php echo $anuncio->anofab ?>">
+                <input type="text" name="anofab" class="form-control" placeholder="Ano de Fabricação" value="">
                 <?php echo display_erros(isset($erros['anofab']) ? $erros['anofab'] : null) ?>
             </div> 
               
             <div class="form-group">
                 <label>Ano do Modelo</label>
-                <input type="text" name="anomodelo" class="form-control" placeholder="Ano do Modelo" value="<?php echo $anuncio->anomodelo ?>">
+                <input type="text" name="anomodelo" class="form-control" placeholder="Ano do Modelo" value="">
                 <?php echo display_erros(isset($erros['anomodelo']) ? $erros['anomodelo'] : null) ?>
             </div>
               
@@ -86,7 +90,7 @@
               
              <div class="form-group">
                 <label>Valor</label>
-                <input type="text" name="valor" class="form-control" placeholder="Valor" value="<?php echo $anuncio->valor ?>">
+                <input type="text" name="valor" class="form-control" placeholder="Valor" value="">
                 <?php echo display_erros(isset($erros['valor']) ? $erros['valor'] : null) ?>
             </div>         
      

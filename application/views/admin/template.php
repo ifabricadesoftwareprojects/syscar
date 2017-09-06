@@ -136,7 +136,7 @@
     <!--   Core JS Files   -->
     <script src="<?php echo link_assets('admin/js/jquery-1.10.2.js') ?>" type="text/javascript"></script>
     <script src="<?php echo link_assets('admin/js/bootstrap.min.js') ?>" type="text/javascript"></script>
-    <script src="<?php echo link_assets('admin/js/admin.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo link_assets('admin/js/ajax.js') ?>" type="text/javascript"></script>
     <!--  Checkbox, Radio & Switch Plugins -->
     <script src="<?php echo link_assets('admin/js/bootstrap-checkbox-radio-switch.js') ?>"></script>
 

@@ -22,6 +22,12 @@ class Meus_veiculos extends MY_Controller {
     
     public function adicionar()
     {
+        $this->load->helper('form');
+        $this->load->model('marca_model', 'marca');
+        $this->load->model('modelo_model', 'modelo');
+        $this->_data['marcas'] = $this->marca->get_marcas_array();
+        $this->_data['modelos'] = array();
+        $this->_data['versoes'] = array();
         $this->view('meus_veiculos_form', $this->_data);
     }
 }
