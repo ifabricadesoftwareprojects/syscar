@@ -64,29 +64,33 @@
                 <?php echo display_erros(isset($erros['anomodelo']) ? $erros['anomodelo'] : null) ?>
             </div>
               
-            <div class="form-group" align="left">
-                <label for="aceitatrocal">Aceita troca?</label></br>
-                
-                <label class="radio-inline">
-                    <input type="radio" name="aceitatrocal" value="Sim" /> Sim
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="aceitatrocal" value="Não" /> Não
-                </label>
+            
+            <div class="vehicle_type form-group" align="left">
+                <label>Aceita troca?</label></br> 
+                <div class="form-group radio col-md-6 accessories_list">
+                    <input type="radio" name="aceitatrocal" value="sim" id="aceitatroca_sim" >
+                    <label for="aceitatroca_sim">Sim</label>
+                 </div>
+                <div class="form-group radio col-md-6 accessories_list">
+                    <input type="radio" name="aceitatrocal" value="nao" id="aceitatroca_nao">
+                    <label for="aceitatroca_nao">Não</label>
+                </div>
                 <?php echo display_erros(isset($erros['aceitatrocal']) ? $erros['aceitatrocal'] : null) ?>
             </div>
-              
-            <div class="form-group" align="left">
-                <label for="unicodono">Unico dono?</label></br>
-                
-                <label class="radio-inline">
-                    <input type="radio" name="unicodono" value="Sim" /> Sim
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="unicodono" value="Não" /> Não
-                </label>
+            
+             
+            <div class="vehicle_type form-group" align="left">
+                <label>Unico dono?</label></br>
+                <div class="form-group radio col-md-6 accessories_list">
+                    <input type="radio" name="unicodono" value="sim" id="unicodono_sim">
+                    <label for="unicodono_sim">Sim</label>
+                 </div>
+                <div class="form-group radio col-md-6 accessories_list">
+                    <input type="radio" name="unicodono" value="nao" id="unicodono_nao">
+                    <label for="unicodono_nao">Não</label>
+                </div>
                 <?php echo display_erros(isset($erros['unicodono']) ? $erros['unicodono'] : null) ?>
-            </div>  
+            </div>
               
              <div class="form-group">
                 <label>Valor</label>
@@ -98,62 +102,13 @@
               <h6>Accessories</h6>
             </div>
             <div class="vehicle_accessories">
+                <?php foreach ($opcionais as $op ) : ?>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="air_conditioner" type="checkbox">
-                <label for="air_conditioner">Air Conditioner</label>
+                  <input id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox[]" value="<?php echo $op->idopcional ?>">
+                <label for="<?php echo 'op_'.$op->idopcional ?>"><?php echo $op->descricaoopcional ?></label>
               </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="door" type="checkbox">
-                <label for="door">Power Door Locks</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="antiLock" type="checkbox">
-                <label for="antiLock">AntiLock Braking System</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="brake" type="checkbox">
-                <label for="brake">Brake Assist</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="steering" type="checkbox">
-                <label for="steering">Power Steering</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="airbag" type="checkbox">
-                <label for="airbag">Driver Airbag</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="windows" type="checkbox">
-                <label for="windows">Power Windows</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="passenger_airbag" type="checkbox">
-                <label for="passenger_airbag">Passenger Airbag</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="player" type="checkbox">
-                <label for="player">CD Player</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="sensor" type="checkbox">
-                <label for="sensor">Crash Sensor</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="seats" type="checkbox">
-                <label for="seats">Leather Seats</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="engine_warning" type="checkbox">
-                <label for="engine_warning">Engine Check Warning</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="locking" type="checkbox">
-                <label for="locking">Central Locking</label>
-              </div>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="headlamps" type="checkbox">
-                <label for="headlamps">Automatic Headlamps</label>
-              </div>
+              
+              <?php endforeach; ?>  
             </div>
             <div class="vehicle_type">
               <div class="form-group radio col-md-6 accessories_list">
