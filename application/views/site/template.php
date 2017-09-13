@@ -225,7 +225,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="login_wrap">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-12 col-sm-12">
             <form action="<?php echo base_url('login') ?>" method="post">
                 <div class="form-group">
                     <input type="text" name="email" class="form-control" placeholder="Email">
@@ -238,10 +238,7 @@
                 </div>
               </form>
             </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
-            <div class="mid_divider"></div>
+            
           </div>
         </div>
       </div>
@@ -265,7 +262,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="signup_wrap">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-12 col-sm-12">
               <form action="#" method="get">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Full Name">
@@ -288,10 +285,6 @@
                 </div>
               </form>
             </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
-            <div class="mid_divider"></div>
           </div>
         </div>
       </div>
