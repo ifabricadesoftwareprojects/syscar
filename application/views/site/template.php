@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<title>CarForYou - Responsive Car Dealer HTML5 Template</title>
+<title>CarForYou</title>
 <!--Bootstrap -->
 <link href="<?php echo link_assets('site/css/bootstrap.min.css') ?>" rel="stylesheet" />
 <!--Custome Style -->
@@ -75,7 +75,7 @@
         <div class="header_search">
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
           <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="Search..." class="form-control">
+            <input type="text" placeholder="Pesquisar..." class="form-control">
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
@@ -183,26 +183,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-push-6 text-right">
+          
           <div class="footer_widget">
-            <p>Download Our APP:</p>
+            <p>Fale Conosco:</p>
             <ul>
-              <li><a href="#"><i class="fa fa-android" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="footer_widget">
-            <p>Connect with Us:</p>
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="http://www.ifspcapivari.com.br/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.instagram.com/explore/locations/354443833/ifsp-campus-capivari/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li>Telefone: 55 (19) 3492-8585</li>
             </ul>
           </div>
         </div>
         <div class="col-md-6 col-md-pull-6">
-          <p class="copy-right">Copyright &copy; 2017 CarForYou. All Rights Reserved</p>
+          <p class="copy-right">Copyright &copy; 2017 SysCar. Todos os Direitos Reservados</p>
         </div>
       </div>
     </div>
@@ -211,7 +203,7 @@
 <!-- /Footer--> 
 
 <!--Back to top-->
-<div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
+<div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>Topo</div>
 <!--/Back to top--> 
 
 <!--Login-Form -->
@@ -243,8 +235,8 @@
         </div>
       </div>
       <div class="modal-footer text-center">
-        <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p>
-        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot Password ?</a></p>
+        <p>Não possui uma conta? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Cadastre-se aqui</a></p>
+        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Esqueceu a senha ?</a></p>
       </div>
     </div>
   </div>
@@ -257,7 +249,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Sign Up</h3>
+        <h3 class="modal-title">Cadastrar</h3>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -265,20 +257,20 @@
             <div class="col-md-12 col-sm-12">
               <form action="#" method="get">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full Name">
+                  <input type="text" class="form-control" placeholder="Nome Completo">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
+                  <input type="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
+                  <input type="password" class="form-control" placeholder="Senha">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
+                  <input type="password" class="form-control" placeholder="Confirmar senha">
                 </div>
                 <div class="form-group checkbox">
                   <input type="checkbox" id="terms_agree">
-                  <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
+                  <label for="terms_agree">Eu concordo com os <a href="#">Termos de Uso</a></label>
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Sign Up" class="btn btn-block">
@@ -289,7 +281,7 @@
         </div>
       </div>
       <div class="modal-footer text-center">
-        <p>Already got an account? <a href="#loginform" data-toggle="modal" data-dismiss="modal">Login Here</a></p>
+        <p>Já possui uma conta? <a href="#loginform" data-toggle="modal" data-dismiss="modal">Login</a></p>
       </div>
     </div>
   </div>
@@ -303,7 +295,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Password Recovery</h3>
+        <h3 class="modal-title">Recuperar Senha</h3>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -311,15 +303,15 @@
             <div class="col-md-12">
               <form action="#" method="get">
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Your Email address*">
+                  <input type="email" class="form-control" placeholder="Digite seu Email*">
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Reset My Password" class="btn btn-block">
+                  <input type="submit" value="Alterar Senha" class="btn btn-block">
                 </div>
               </form>
               <div class="text-center">
-                <p class="gray_text">For security reasons we don't store your password. Your password will be reset and a new one will be send.</p>
-                <p><a href="#loginform" data-toggle="modal" data-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a></p>
+                <p class="gray_text">Por razões de segurança nós não guardaremos sua senha. Sua senha será apagada e uma nova será enviada.</p>
+                <p><a href="#loginform" data-toggle="modal" data-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Voltar para o Login</a></p>
               </div>
             </div>
           </div>

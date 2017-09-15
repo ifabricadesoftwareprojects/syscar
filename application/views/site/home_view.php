@@ -12,9 +12,9 @@
             <form action="#" method="post">
               <div class="form-group select sorting-select">
                 <select class="form-control ">
-                  <option>Price (low to high)</option>
-                  <option>Price (high to low)</option>
-                  <option>Newest Items</option>
+                  <option>Preço (Menor p/ Maior)</option>
+                  <option>Price (Maior p/ Menor)</option>
+                  <option>Últimos carros postados</option>
                 </select>
               </div>
             </form>
@@ -24,11 +24,11 @@
           <div class="col-md-4 grid_listing">
             <div class="product-listing-m gray-bg">
               <div class="product-listing-img"> <a href="#"><img src="<?php echo link_assets('site/images/featured-img-1.jpg') ?>" class="img-responsive" alt="image" /> </a>
-                <div class="label_icon">New</div>
+                <div class="label_icon">Novo</div>
                 <div class="compare_item">
                   <div class="checkbox">
                     <input type="checkbox" value="" id="compare10">
-                    <label for="compare10">Compare</label>
+                    <label for="compare10">Comparar</label>
                   </div>
                 </div>
               </div>
