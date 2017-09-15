@@ -55,7 +55,7 @@
   <nav id="navigation_bar" class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <button id="menu_slide" data-target="#navigation"  aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       </div>
       <div class="header_wrap">
           <?php if ($this->session->token) : ?>
@@ -63,10 +63,10 @@
           <ul>
             <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo $this->session->nome ?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url('minha_conta/meus_dados') ?>">Meus Dados</a></li>
-                <li><a href="<?php echo base_url('minha_conta/meus_veiculos') ?>">Meus Veículos</a></li>
-                <li><a href="<?php echo base_url('minha_conta/meus_veiculos/adicionar') ?>">Adicionar novo veículo</a></li>
-                <li><a href="<?php echo base_url('minha_conta/logout') ?>">Sair</a></li>
+                <li><a href=" <?php echo base_url('minha_conta/meus_dados') ?>">Meus Dados</a></li>
+                <li><a href=" <?php echo base_url('minha_conta/meus_veiculos') ?>">Meus Veículos</a></li>
+                <li><a href=" <?php echo base_url('minha_conta/meus_veiculos/adicionar') ?>">Adicionar novo veículo</a></li>
+                <li><a href=" <?php echo base_url('minha_conta/logout') ?>">Sair</a></li>
               </ul>
             </li>
           </ul>
