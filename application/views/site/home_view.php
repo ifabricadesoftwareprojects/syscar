@@ -5,10 +5,10 @@
       <div class="col-md-9 col-md-push-3">
         <div class="result-sorting-wrapper">
           <div class="sorting-count">
-            <p>1 - 12 <span>of 50 Results for your search.</span></p>
+            <p>1 - 12 <span>de 50 Resultados para sua pesquisa.</span></p>
           </div>
           <div class="result-sorting-by">
-            <p>Sort by:</p>
+            <p>Ordenar por:</p>
             <form action="#" method="post">
               <div class="form-group select sorting-select">
                 <select class="form-control ">
@@ -385,9 +385,9 @@
               </div>
               <div class="form-group select">
                 <select class="form-control">
-                  <option>Type of Car </option>
-                  <option>New Car</option>
-                  <option>Used Car</option>
+                  <option>Tipo de Carro </option>
+                  <option>Carro Novo</option>
+                  <option>Carro Usado</option>
                 </select>
               </div>
               <div class="form-group">
@@ -398,14 +398,14 @@
         </div>
         <div class="sidebar_widget sell_car_quote">
           <div class="white-text div_zindex text-center">
-            <h3>Sell Your Car</h3>
-            <p>Request a quote and sell your car now!</p>
-            <a href="#" class="btn">Request a Quote <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <h3>Venda seu carro</h3>
+            <p>Solicite um orçamento e venda seu carro!</p>
+            <a href="#" class="btn">Fazer Orçamento <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
           <div class="dark-overlay"></div>
         </div>
         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-car" aria-hidden="true"></i> Recently Listed Cars</h5>
+            <h5><i class="fa fa-car" aria-hidden="true"></i> Carros Listados Recentemente</h5>
           </div>
           <div class="recent_addedcars">
             <ul>

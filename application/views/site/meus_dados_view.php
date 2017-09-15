@@ -15,18 +15,22 @@
     </div>
     <div class="row">
       <div class="col-md-3 col-sm-3">
-        <div class="profile_nav">
+         <?php if ($this->session->token) : ?>  
+        <div class="profile_nav user_login">
           <ul>
-            <li><a href="profile-settings.html">Profile Settings</a></li>
-            <li class="active"><a href="my-vehicles.html">My Vehicles</a></li>
-            <li><a href="post-vehicle.html">Post a Vehicles</a></li>
-            <li><a href="#">Sign Out</a></li>
+            <li><a href="<?php echo base_url('minha_conta/meus_dados') ?>">Meus Dados</a></li>
+            <li class="active"><a href="<?php echo base_url('minha_conta/meus_veiculos') ?>">Meus Veículos</a></li>
+            <li><a href="<?php echo base_url('minha_conta/meus_veiculos/adicionar') ?>">Adicionar novo veículo</a></li>
+            <li><a href="<?php echo base_url('minha_conta/logout') ?>">Sair</a></li>
           </ul>
         </div>
+        <?php endif; ?> 
       </div>
+        
+        
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">My Vehicles <span>(20 Cars)</span></h5>
+          <h5 class="uppercase underline">Meus Carros <span>(20 Cars)</span></h5>
           <div class="my_vehicles_list">
             <ul class="vehicle_listing">
               <li>

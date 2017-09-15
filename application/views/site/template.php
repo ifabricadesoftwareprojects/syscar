@@ -38,7 +38,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="index.html"><img src="<?php echo link_assets('site/images/logo.png') ?>" alt="image"/></a> </div>
+          <div class="logo"> <a href="<?php echo base_url('home') ?>"><img src="<?php echo link_assets('site/images/logo.png') ?>" alt="image"/></a> </div>
         </div>
         <div class="col-sm-9 col-md-10">
         <?php if(!$this->session->token) :  ?>

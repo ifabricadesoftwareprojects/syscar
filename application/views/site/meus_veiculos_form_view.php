@@ -15,20 +15,23 @@
     </div>
     <div class="row">
       <div class="col-md-3 col-sm-3">
-        <div class="profile_nav">
+         <?php if ($this->session->token) : ?>  
+        <div class="profile_nav user_login">
           <ul>
-            <li><a href="profile-settings.html">Profile Settings</a></li>
-            <li><a href="my-vehicles.html">Meus Veículos</a></li>
-            <li class="active"><a href="post-vehicle.html">Post a Vehicles</a></li>
-            <li><a href="#">Sign Out</a></li>
+            <li><a href="<?php echo base_url('minha_conta/meus_dados') ?>"> Meus Dados</a></li>
+            <li ><a href="<?php echo base_url('minha_conta/meus_veiculos') ?>">Meus Veículos</a></li>
+            <li class="active"><a href="<?php echo base_url('minha_conta/meus_veiculos/adicionar') ?>">Adicionar novo veículo</a></li>
+            <li><a href="<?php echo base_url('minha_conta/logout') ?>">Sair</a></li>
           </ul>
         </div>
+        <?php endif; ?> 
       </div>
+        
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
           <h5 class="uppercase underline">Adicionar um novo veículo</h5>
           <form action="#" method="get">
-              <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
+            <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
             <div class="form-group">
             <label>Marca</label>
                 <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), '', 'class="form-control white_bg" id="cmbMarcas"') ?>
@@ -99,29 +102,31 @@
             </div>         
      
             <div class="gray-bg field-title">
-              <h6>Accessories</h6>
+              <h6>Acessórios</h6>
             </div>
             <div class="vehicle_accessories">
                 <?php foreach ($opcionais as $op ) : ?>
               <div class="form-group checkbox col-md-6 accessories_list">
-                  <input id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox[]" value="<?php echo $op->idopcional ?>">
-                <label for="<?php echo 'op_'.$op->idopcional ?>"><?php echo $op->descricaoopcional ?></label>
+                <label for="<?php echo 'op_'.$op->idopcional ?>" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox[]" value="<?php echo $op->idopcional ?>" > <?php echo $op->descricaoopcional ?>    
               </div>
               
               <?php endforeach; ?>  
             </div>
+            <div class="gray-bg field-title">
+              <h6>Tipo de Carro</h6>
+            </div>
             <div class="vehicle_type">
               <div class="form-group radio col-md-6 accessories_list">
                 <input type="radio" name="vehicle_type" value="radio" id="newcar">
-                <label for="newcar">New Car</label>
+                <label for="newcar">Carro Novo</label>
               </div>
               <div class="form-group radio col-md-6 accessories_list">
                 <input type="radio" name="vehicle_type" value="radio" id="usedcar">
-                <label for="usedcar">Used Car</label>
+                <label for="usedcar">Carro Usado</label>
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn">Submit Vehicle <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+              <button type="submit" class="btn">Postar Carro <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
             </div>
           </form>
         </div>
