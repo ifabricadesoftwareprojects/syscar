@@ -15,6 +15,7 @@ class Home extends MY_Controller {
     
     public function index()
     {
+        $this->_data['usuario'] = null;
         $this->view('home', $this->_data);
     }
 }
