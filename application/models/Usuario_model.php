@@ -90,4 +90,13 @@ class Usuario_model extends MY_Model{
         $this->perfil = $usuario->perfil;
         return true;
     }
+    
+    public function get_id_by_token($token)
+    {
+        $usuario = $this->findBy('token', $token, 'idusuario');
+        if(count($usuario) == 0){
+            return false;
+        }
+        return $usuario[0]->idusuario;
+    }
 }

@@ -30,7 +30,8 @@
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
           <h5 class="uppercase underline">Adicionar um novo veículo</h5>
-          <form action="#" method="get">
+          <p><?php echo $msg ?></p>
+          <form method="post">
             <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
             <div class="form-group">
             <label>Marca</label>
@@ -107,7 +108,8 @@
             <div class="vehicle_accessories">
                 <?php foreach ($opcionais as $op ) : ?>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <label for="<?php echo 'op_'.$op->idopcional ?>" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox[]" value="<?php echo $op->idopcional ?>" > <?php echo $op->descricaoopcional ?>    
+                  <input name="opcionais[]" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox" value="<?php echo $op->idopcional ?>" >     
+                  <label for="<?php echo 'op_'.$op->idopcional ?>"><?php echo $op->descricaoopcional ?></label> 
               </div>
               
               <?php endforeach; ?>  
