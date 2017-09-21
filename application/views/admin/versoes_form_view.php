@@ -11,11 +11,11 @@
                                     <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
                                     <div class="form-group">
                                         <label>Marca</label>
-                                        <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), (isset($versao->marca_idmarca) ? $versao->marca_idmarca : ''), 'class="form-control" id="cmbMarcas"') ?>
+                                        <?php echo form_dropdown('marca', my_array_merge(array('0' => 'Selecione uma marca'), $marcas), (isset($versao->marca_idmarca) ? $versao->marca_idmarca : ''), 'class="form-control" id="cmbMarcas"') ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Modelo</label>
-                                        <?php echo form_dropdown('modelo_idmodelo', array_merge(array('0' => 'Selecione um modelo'), $modelos), $versao->modelo_idmodelo, 'class="form-control" id="cmbModelos"') ?>
+                                        <?php echo form_dropdown('modelo_idmodelo', my_array_merge(array('0' => 'Selecione um modelo'), $modelos), $versao->modelo_idmodelo, 'class="form-control" id="cmbModelos"') ?>
                                     </div>
                                     
                                     <div class="form-group">

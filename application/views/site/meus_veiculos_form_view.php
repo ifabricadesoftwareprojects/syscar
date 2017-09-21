@@ -35,36 +35,36 @@
             <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
             <div class="form-group">
             <label>Marca</label>
-                <?php echo form_dropdown('marca', array_merge(array('0' => 'Selecione uma marca'), $marcas), '', 'class="form-control white_bg" id="cmbMarcas"') ?>
+                <?php echo form_dropdown('marca', my_array_merge(array('0' => 'Selecione uma marca'), $marcas), (isset($anuncio->marca_idmarca) ? $anuncio->marca_idmarca : ''), 'class="form-control white_bg" id="cmbMarcas"') ?>
             </div>
             <div class="form-group">
                 <label>Modelo</label>
-                <?php echo form_dropdown('modelo_idmodelo', array_merge(array('0' => 'Selecione um modelo'), $modelos), '', 'class="form-control white_bg" id="cmbModelos"') ?>
+                <?php echo form_dropdown('modelo_idmodelo', my_array_merge(array('0' => 'Selecione um modelo'), $modelos), (isset($anuncio->modelo_idmodelo) ? $anuncio->modelo_idmodelo : ''), 'class="form-control white_bg" id="cmbModelos"') ?>
             </div>
             <div class="form-group">
                 <label>Versão</label>
-                <?php echo form_dropdown('versao', array_merge(array('0' => 'Selecione uma versão'), $modelos), '', 'class="form-control white_bg" id="cmbVersoes"') ?>
+                <?php echo form_dropdown('versao', my_array_merge(array('0' => 'Selecione uma versão'), $versoes), (isset($anuncio->versao_idversao) ? $anuncio->versao_idversao : ''), 'class="form-control white_bg" id="cmbVersoes"') ?>
             </div>
               
             <div class="form-group">
                 <label>Descrição</label>
-                <input type="text" name="descricaoanuncio" class="form-control" placeholder="Descrição do anuncio" value="">
+                <input type="text" name="descricaoanuncio" class="form-control" placeholder="Descrição do anuncio" value="<?php echo $anuncio->descricaoanuncio ?>">
                 <?php echo display_erros(isset($erros['descricaoanuncio']) ? $erros['descricaoanuncio'] : null) ?>
             </div>
             <div class="form-group">
                 <label>Quilometragem</label>
-                <input type="text" name="km" class="form-control" placeholder="Quilometragem do veiculo" value="">
+                <input type="text" name="km" class="form-control" placeholder="Quilometragem do veiculo" value="<?php echo $anuncio->km ?>">
                 <?php echo display_erros(isset($erros['km']) ? $erros['km'] : null) ?>
             </div> 
             <div class="form-group">
                 <label>Ano de Fabricação</label>
-                <input type="text" name="anofab" class="form-control" placeholder="Ano de Fabricação" value="">
+                <input type="text" name="anofab" class="form-control" placeholder="Ano de Fabricação" value="<?php echo $anuncio->anofab ?>">
                 <?php echo display_erros(isset($erros['anofab']) ? $erros['anofab'] : null) ?>
             </div> 
               
             <div class="form-group">
                 <label>Ano do Modelo</label>
-                <input type="text" name="anomodelo" class="form-control" placeholder="Ano do Modelo" value="">
+                <input type="text" name="anomodelo" class="form-control" placeholder="Ano do Modelo" value="<?php echo $anuncio->anomodelo ?>">
                 <?php echo display_erros(isset($erros['anomodelo']) ? $erros['anomodelo'] : null) ?>
             </div>
               
@@ -86,11 +86,11 @@
             <div class="vehicle_type form-group" align="left">
                 <label>Unico dono?</label></br>
                 <div class="form-group radio col-md-6 accessories_list">
-                    <input type="radio" name="unicodono" value="sim" id="unicodono_sim">
+                    <input type="radio" name="unicodono" value="sim" id="unicodono_sim"<?php echo ($anuncio->unicodono == 'sim' ? ' checked' : '') ?>>
                     <label for="unicodono_sim">Sim</label>
                  </div>
                 <div class="form-group radio col-md-6 accessories_list">
-                    <input type="radio" name="unicodono" value="nao" id="unicodono_nao">
+                    <input type="radio" name="unicodono" value="nao" id="unicodono_nao"<?php echo ($anuncio->unicodono == 'nao' ? ' checked' : '') ?>>
                     <label for="unicodono_nao">Não</label>
                 </div>
                 <?php echo display_erros(isset($erros['unicodono']) ? $erros['unicodono'] : null) ?>
@@ -98,7 +98,7 @@
               
              <div class="form-group">
                 <label>Valor</label>
-                <input type="text" name="valor" class="form-control" placeholder="Valor" value="">
+                <input type="text" name="valor" class="form-control" placeholder="Valor" value="<?php echo $anuncio->valor ?>">
                 <?php echo display_erros(isset($erros['valor']) ? $erros['valor'] : null) ?>
             </div>         
      
@@ -108,7 +108,7 @@
             <div class="vehicle_accessories">
                 <?php foreach ($opcionais as $op ) : ?>
               <div class="form-group checkbox col-md-6 accessories_list">
-                  <input name="opcionais[]" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox" value="<?php echo $op->idopcional ?>" >     
+                  <input name="opcionais[]" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox" value="<?php echo $op->idopcional ?>"<?php echo (in_array($op->idopcional, $opcionais_anuncio) ? ' checked' : '') ?>>     
                   <label for="<?php echo 'op_'.$op->idopcional ?>"><?php echo $op->descricaoopcional ?></label> 
               </div>
               

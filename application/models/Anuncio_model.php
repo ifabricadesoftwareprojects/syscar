@@ -96,4 +96,32 @@ class Anuncio_model extends MY_Model{
                 ->get()
                 ->result();
     }
+    
+    //recebo o $idusuario como parâmetro para que uma concessionaria nao consiga editar
+    //os anuncios de outra concessionária!!!
+    public function get_anuncio_by_id($idanuncio, $idusuario) 
+    {
+        return $this->db->from('anuncio a')
+                ->join('versao v', 'a.versao_idversao = v.idversao')
+                ->join('modelo m', 'v.modelo_idmodelo = m.idmodelo')
+                ->join('marca', 'm.marca_idmarca = marca.idmarca')
+                ->where('a.usuario_idusuario', $idusuario)
+                ->where('a.idanuncio', $idanuncio)
+                ->get()
+                ->row(0, $this->model);
+    }
+    
+    public function get_opcionais_anuncio_array($idanuncio)
+    {
+        $query = $this->db->from('anuncio_opcional ap')
+                ->where('ap.anuncio_idanuncio', $idanuncio)
+                ->get()
+                ->result();
+        
+        $array = array();
+        foreach ($query as $rs){
+            $array[] = $rs->anuncio_idanuncio;
+        }
+        return $array;
+    }
 }

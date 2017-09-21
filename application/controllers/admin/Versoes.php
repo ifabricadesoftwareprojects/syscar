@@ -20,6 +20,7 @@ class Versoes extends MY_Controller {
         $this->load->model('modelo_model', 'modelo');
         $this->load->model('marca_model', 'marca');
         $this->load->helper('form');
+        $this->load->helper('array');
         
         $this->_data['active'] = 'versoes';
         $this->_data['title'] = 'Gerenciar Versão';
