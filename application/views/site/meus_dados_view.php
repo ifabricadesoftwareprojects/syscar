@@ -30,74 +30,25 @@
         
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">Meus Carros <span>(20 Cars)</span></h5>
-          <div class="my_vehicles_list">
-            <ul class="vehicle_listing">
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-1.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li class="deactive_vehicle">
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-2.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs">Deactive</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-3.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Ford Mustang 2.3 Ecoboost Premium </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-4.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-5.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-3.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Ford Mustang 2.3 Ecoboost Premium </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-            </ul>
-            <div class="pagination">
-              <ul>
-                <li class="current">1</li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-              </ul>
+          <h5 class="uppercase underline">Meus Dados</h5>
+          <p><?php echo $msg ?></p>
+          <form method="post">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" name="nome" class="form-control" placeholder="Nome" value="<?php echo $usuario->nome ?>">
             </div>
-          </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>">
+            </div>
+            <div class="form-group">
+                <label>Perfil</label>
+                <input type="text" name="perfil" class="form-control" placeholder="Perfil" value="<?php echo $usuario->perfil ?>" readonly>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn">Atualizar Dados <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
