@@ -85,4 +85,15 @@ class Anuncio_model extends MY_Model{
             throw new Exception('Erro ao validar os dados');
         }
     }
+    
+    public function get_anuncios_by_usuario($idusuario)
+    {
+        return $this->db->from('anuncio a')
+                ->join('versao v', 'a.versao_idversao = v.idversao')
+                ->join('modelo m', 'v.modelo_idmodelo = m.idmodelo')
+                ->join('marca', 'm.marca_idmarca = marca.idmarca')
+                ->where('a.usuario_idusuario', $idusuario)
+                ->get()
+                ->result();
+    }
 }

@@ -29,57 +29,23 @@
           <h5 class="uppercase underline">Meus Veículos <span>(20 Carros)</span></h5>
           <div class="my_vehicles_list">
             <ul class="vehicle_listing">
+            <?php foreach ($anuncios as $anuncio) : ?>
               <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-1.jpg') ?>" alt="image"></a> </div>
+                  <div class="vehicle_img"> <a href="<?php echo base_url('minha_conta/meus_veiculos/editar/' . $anuncio->idanuncio) ?>" title="Editar esse anúncio"><img src="<?php echo link_assets('site/images/recent-car-1.jpg') ?>" alt="image"></a> </div>
                 <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
+                    <h6><a href="<?php echo base_url('minha_conta/meus_veiculos/editar/' . $anuncio->idanuncio) ?>" title="Editar esse anúncio"><?php echo $anuncio->nomemarca . ' ' . $anuncio->nomemodelo . ' ' . $anuncio->descricaoversao . ', ' . $anuncio->anofab . '/' . $anuncio->anomodelo ?> </a></h6>
                 </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
+                <div class="vehicle_status"> <a href="<?php echo base_url('minha_conta/meus_veiculos/fotos/' . $anuncio->idanuncio) ?>" class="btn outline btn-xs active-btn" title="Gerenciar fotos desse anúncio">Fotos</a>
                   <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
+                  <a href="<?php echo base_url('minha_conta/meus_veiculos/editar/' . $anuncio->idanuncio) ?>" title="Editar esse anúncio"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
               </li>
+              <?php endforeach; ?>
               <li class="deactive_vehicle">
                 <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-2.jpg') ?>" alt="image"></a> </div>
                 <div class="vehicle_title">
                   <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
                 </div>
                 <div class="vehicle_status"> <a href="#" class="btn outline btn-xs">Deactive</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-3.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Ford Mustang 2.3 Ecoboost Premium </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-4.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-5.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="<?php echo link_assets('site/images/recent-car-3.jpg') ?>" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Ford Mustang 2.3 Ecoboost Premium </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
                   <div class="clearfix"></div>
                   <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
               </li>

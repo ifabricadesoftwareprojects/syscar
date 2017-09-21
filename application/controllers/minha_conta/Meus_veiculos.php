@@ -14,10 +14,12 @@ class Meus_veiculos extends MY_Controller {
             redirect('');
         }
         $this->load->model('anuncio_model', 'anuncio');
+        $this->load->model('usuario_model', 'usuario');
     }
     
     public function index()
     {
+        $this->_data['anuncios'] = $this->anuncio->get_anuncios_by_usuario($this->usuario->get_id_by_token($this->session->token));
         $this->_data['msg'] = $this->session->flashdata('msg');
         $this->view('meus_veiculos', $this->_data);
     }
@@ -26,7 +28,6 @@ class Meus_veiculos extends MY_Controller {
     {
         if($this->input->post()){
             $this->anuncio = $this->anuncio->post_to($this->input->post(), $this->anuncio);
-            $this->load->model('usuario_model', 'usuario');
             $this->anuncio->usuario_idusuario = $this->usuario->get_id_by_token($this->session->token);
             $this->anuncio->versao_idversao = $this->input->post('versao');
             try{
