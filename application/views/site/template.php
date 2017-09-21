@@ -242,33 +242,33 @@
             </div>
         </div>
         <!--/Login-Form --> 
-
+        
         <!--Register-Form -->
         <div class="modal fade" id="signupform">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title">Cadastrar</h3>
+                        <h3 class="modal-title">Cadastrar-se</h3>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="signup_wrap">
                                 <div class="col-md-12 col-sm-12">
-                                    <form action="#" method="get">
+                                    <form action="<?php echo base_url('home/cadastrar') ?>" method="post">
                                         <div class="form-group">
-                                            <input type="text" name="nome" class="form-control" placeholder="Nome completo" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['nome'] : '') ?>>
+                                            <input type="text" name="nome" class="form-control" placeholder="Nome completo" value="<?php echo (isset($dados_usuario) ? $dados_usuario['nome'] : '') ?>">
                                             <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="email" class="form-control" placeholder="Email" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['email'] : '') ?>>
+                                            <input type="text" name="email" class="form-control" placeholder="Email" value="<?php echo (isset($dados_usuario) ? $dados_usuario['email'] : '') ?>">
                                             <?php echo display_erros(isset($erros['email']) ? $erros['email'] : null) ?>
                                         </div>
                                         <div class="form-group">
 
                                             <select name="perfil" class="form-control ">
-                                                <option value="Usuario">Usuario</option>
-                                                <option value="Concessionaria">Concessionária</option>
+                                                <option value="Usuario"<?php echo (isset($dados_usuario) && $dados_usuario['perfil'] == 'Usuario') ? ' selected' : '' ?>>Usuario</option>
+                                                <option value="Concessionaria"<?php echo (isset($dados_usuario) && $dados_usuario['perfil'] == 'Concessionaria') ? ' selected' : '' ?>>Concessionária</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -340,6 +340,12 @@
         <!--Slider-JS--> 
         <script src="<?php echo link_assets('site/js/slick.min.js') ?>"></script>
         <script src="<?php echo link_assets('site/js/owl.carousel.min.js') ?>"></script>
-
+        <?php if(isset($abrir) && !is_null($abrir)) :  ?>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               $('#<?php echo $abrir ?>').modal(); 
+            });
+        </script>
+        <?php endif; ?> 
     </body>
 </html>
