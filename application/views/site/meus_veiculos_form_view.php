@@ -106,11 +106,11 @@
               <h6>Acessórios</h6>
             </div>
             <div class="vehicle_accessories">
-                <?php foreach ($opcionais as $op ) : ?>
-              <div class="form-group checkbox col-md-6 accessories_list">
-                  <input name="opcionais[]" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox" value="<?php echo $op->idopcional ?>"<?php echo (in_array($op->idopcional, $opcionais_anuncio) ? ' checked' : '') ?>>     
-                  <label for="<?php echo 'op_'.$op->idopcional ?>"><?php echo $op->descricaoopcional ?></label> 
-              </div>
+              <?php foreach ($opcionais as $op ) : ?>
+                <div class="form-group checkbox col-md-6 accessories_list">
+                    <input name="opcionais[]" id="<?php echo 'op_'.$op->idopcional ?>" type="checkbox" value="<?php echo $op->idopcional ?>"<?php echo (isset($opcionais_anuncio) && in_array($op->idopcional, $opcionais_anuncio) ? ' checked' : '') ?>>     
+                    <label for="<?php echo 'op_'.$op->idopcional ?>"><?php echo $op->descricaoopcional ?></label> 
+                </div>
               
               <?php endforeach; ?>  
             </div>
