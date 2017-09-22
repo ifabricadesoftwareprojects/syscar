@@ -83,12 +83,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index.html">Home Page 1</a></li>
-                                    <li><a href="index-2.html">Home Page 2</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="<?php echo base_url('home') ?>">Home</a></li>
                             <li><a href="about-us.html">About Us</a></li>
                             <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory</a>
                                 <ul class="dropdown-menu">

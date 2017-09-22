@@ -17,10 +17,10 @@
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-            <li><a href="<?php echo base_url('minha_conta/meus_dados') ?>">Meus Dados</a></li>
-            <li class="active"><a href="<?php echo base_url('minha_conta/meus_veiculos') ?>">Meus Veículos</a></li>
-            <li><a href="<?php echo base_url('minha_conta/meus_veiculos/adicionar') ?>">Adicionar novo veículo</a></li>
-            <li><a href="<?php echo base_url('minha_conta/logout') ?>">Sair</a></li>
+            <li><a href="<?php echo base_url('minha_conta/meus_dados') ?>">MEUS DADOS </a></li>
+            <li class="active"><a href="<?php echo base_url('minha_conta/meus_veiculos') ?>">MEUS VEÍCULOS</a></li>
+            <li><a href="<?php echo base_url('minha_conta/meus_veiculos/adicionar') ?>">ADICONAR NOVO VEÍCULO</a></li>
+            <li><a href="<?php echo base_url('minha_conta/logout') ?>">SAIR</a></li>
           </ul>
         </div>
       </div>
