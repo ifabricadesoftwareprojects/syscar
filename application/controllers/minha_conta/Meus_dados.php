@@ -23,7 +23,6 @@ class Meus_dados extends MY_Controller {
         //retorna um array de objetos. Nesse caso, ele retorna o array com apenas 1 posicao (Pos 0)
         $this->_data['usuario'] = $usuario[0];
         $this->_data['msg'] = $this->session->flashdata('msg');
-        $this->_data['abrir'] = $this->session->flashdata('abrir');
         $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
         $this->_data['erros'] = $this->session->flashdata('erro');
         $this->_data['dados_usuario'] = $this->session->flashdata('dados'); 
@@ -33,26 +32,35 @@ class Meus_dados extends MY_Controller {
     public function editar()
     { 
         if($this->input->post()){
-            $this->usar = $this->usuario->get_id_by_token($this->session->token);
-            $this->usuario = $this->usuario->find($this->usar);
-            $this->usuario = $this->usuario->post_to($this->input->post(), $this->usuario);
+            $this->usuario = $this->usuario->find($this->usuario->get_id_by_token($this->session->token));
+            $post = $this->input->post();
+            $changed_password = true;
+            if($post["senha"] == "")
+            {
+                unset($post["senha"]);
+                unset($post["confirmar"]);
+                $changed_password = false;
+            }
+            $this->usuario = $this->usuario->post_to($post, $this->usuario);
             try{
-                $this->usuario->update('idusuario', $this->usuario->idusuario, $this->input->post('confirmar'));
+                $this->usuario->update('idusuario', $this->usuario->idusuario, $this->input->post('confirmar'), $changed_password);
                 $this->session->set_flashdata('msg', 'Usuario atualizado com sucesso');
                 $this->session->set_flashdata('msgstatus', 'success');
-                redirect('home');
+                $this->session->set_userdata(
+                        array(
+                            'nome'   => $this->usuario->nome
+                        )
+                    );
             } catch (Exception $ex) {
-                $this->session->set_flashdata('abrir', 'Usuario');
                 $this->session->set_flashdata('msg', 'Erro ao atualizar usuario:');
                 $this->session->set_flashdata('erro', $this->usuario->get_erro());
                 $this->session->set_flashdata('dados', $this->input->post());
                 $this->session->set_flashdata('msgstatus', 'error');
             }
+            redirect('minha_conta/meus_dados');
         }
-        $this->_data['usuario'] = $this->usuario->find($id);
+        $this->_data['usuario'] = $this->usuario->find($this->usuario->get_id_by_token($this->session->token));
         
-        $this->_data['sub_title'] = 'Editar usuario';
-        $this->_data['action'] = 'Atualizar';
         $this->_data['alert_message'] = alert_message($this->session->flashdata('msg'), $this->session->flashdata('msgstatus'));
         $this->_data['erros'] = $this->session->flashdata('erro');
         $this->_data['dados_usuario'] = $this->session->flashdata('dados');

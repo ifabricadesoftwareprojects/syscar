@@ -38,16 +38,22 @@ class Usuario_model extends MY_Model{
         }
     }
     
-    public function update($field, $value,$confirmar = '') {
+    public function update($field, $value,$confirmar = '', $changed_password = false) {
         try {
-            $this->validar_dados($confirmar);
+            if($changed_password === true){
+                $this->validar_dados($confirmar);
+                $this->senha = md5($this->senha);
+            }
+            else {
+                $this->validar_dados($confirmar,false);
+            }
             parent::update($field, $value);
         } catch (Exception $ex) {
             throw new Exception();
         }
     }
     
-    public function validar_dados($confirmar)
+    public function validar_dados($confirmar, $validar_senha = true)
     {
         //falta a customizar a mensagem
         $CI =& get_instance();
@@ -57,8 +63,12 @@ class Usuario_model extends MY_Model{
         
         $validate->set('nome', $this->nome)->is_required()->min_length(3)->max_length(75)
                  ->set('email', $this->email)->is_required()->is_email()
-                 ->set('senha', $this->senha)->is_required()->min_length(7)->is_equals($confirmar)
                  ->set('perfil', $this->perfil)->is_required();
+        
+        if($validar_senha == true)
+        {
+            $validate->set('senha', $this->senha)->is_required()->min_length(7)->is_equals($confirmar);
+        }
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();

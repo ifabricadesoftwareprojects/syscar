@@ -31,6 +31,7 @@
             <div class="col-md-6 col-sm-8">
                 <div class="profile_wrap">
                     <h5 class="uppercase underline">Meus Dados</h5>
+                    
                     <p><?php echo $msg ?></p>
                     <form action="<?php echo base_url('minha_conta/meus_dados/editar') ?>" method="post">
                         <div class="form-group">
@@ -51,6 +52,8 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label>Se não deseja alterar a senha deixe ambos campos abaixo em branco!</label>
+                            <br>
                             <label>Senha</label>
                             <input type="password" name="senha" class="form-control" placeholder="" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['senha'] : '') ?>>
                             <?php echo display_erros(isset($erros['senha']) ? $erros['senha'] : null) ?>
