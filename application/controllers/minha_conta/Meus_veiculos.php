@@ -33,6 +33,8 @@ class Meus_veiculos extends MY_Controller {
             $this->anuncio->versao_idversao = $this->input->post('versao');
             try{
                 $this->anuncio->inserir_anuncio($this->input->post('opcionais'));
+                //Cria uma pasta em assets/fotos para salvar as fotos do anuncio
+                mkdir('assets/fotos/anuncio' . $this->anuncio->idanuncio);
                 $this->session->set_flashdata('msg', 'Anúncio salvo com sucesso');
                 redirect('minha_conta/meus_veiculos');
             } catch (Exception $ex) {

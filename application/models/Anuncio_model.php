@@ -51,8 +51,8 @@ class Anuncio_model extends MY_Model{
             $this->db->trans_begin();
             //insere o anuncio
             parent::insert();
-            $id_anuncio = $this->db->insert_id();
-            $CI->opcional->anuncio_idanuncio = $id_anuncio;
+            $this->idanuncio = $this->db->insert_id();
+            $CI->opcional->anuncio_idanuncio = $this->idanuncio;
             foreach ($opcionais as $op){
                 $CI->opcional->opcional_idopcional = $op;
                 $CI->opcional->insert();
