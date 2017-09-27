@@ -89,4 +89,23 @@ class Meus_veiculos extends MY_Controller {
         
         $this->view('meus_veiculos_form', $this->_data);
     }
+    
+    public function fotos($idanuncio = null)
+    {
+        if(is_null($idanuncio)){
+            $this->session->set_flashdata('msg', 'Anúncio não encontrado');
+            redirect('minha_conta/meus_veiculos');
+        }
+        
+        $this->_data['anuncio'] = $this->anuncio->get_anuncio_by_id($idanuncio, $this->usuario->get_id_by_token($this->session->token));
+        if(!$this->_data['anuncio']){
+            $this->session->set_flashdata('msg', 'Anúncio não encontrado');
+            redirect('minha_conta/meus_veiculos');
+        }
+        
+        $this->_data['msg'] = $this->session->flashdata('msg');
+        $this->_data['erros'] = $this->session->flashdata('erro');
+        
+        $this->view('meus_veiculos_fotos', $this->_data);
+    }
 }

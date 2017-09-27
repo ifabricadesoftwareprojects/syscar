@@ -30,4 +30,33 @@ $(document).ready(function(){
             }
         });
     });
+    
+    //Upload de fotos
+    $('#btnEnviar').click(function(){
+        $('#formUpload').ajaxForm({
+            uploadProgress: function(event, position, total, percentComplete) {
+                $('progress').attr('value',percentComplete);
+                $('#porcentagem').html(percentComplete+'%');
+            },        
+            success: function(data) {
+                $('progress').attr('value','100');
+                $('#porcentagem').html('100%');                
+                if(data.sucesso === true){
+                    $('#resposta').html('<img src="'+ data.msg +'" width="200" height="200" />');
+                    $('progress').attr('value','0');
+                    $('#porcentagem').html(''); 
+                }
+                else{
+                    console.log(data.msg);
+                    $('#resposta').html(data.msg);
+                }                
+            },
+            error : function(){
+                $('#resposta').html('Erro ao enviar requisição!!!');
+            },
+            dataType: 'json',
+            url: $('#url').val() + "/upload_foto",
+            resetForm: true
+        }).submit();
+    })
 });

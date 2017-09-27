@@ -28,4 +28,24 @@ class Ajax extends MY_Controller {
             echo json_encode($versoes);
         }
     }
+    
+    public function upload_foto()
+    {
+        if($this->input->post()){
+            $config["upload_path"] = "assets/fotos/";
+            $config["allowed_types"] = "gif|jpg|png";
+            $config["overwrite"] = TRUE;
+            $this->load->library("upload", $config);
+            //em caso de sucesso no upload
+            if ($this->upload->do_upload('foto')) {
+                $data['msg'] = site_url($config["upload_path"] . $this->upload->file_name);
+                $data['sucesso'] = true;
+            }
+            else{
+                $data['sucesso'] = false;
+                $data['msg'] = $this->upload->display_errors();
+            }
+            echo json_encode($data);
+        }
+    }
 }
