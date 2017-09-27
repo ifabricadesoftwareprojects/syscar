@@ -29,10 +29,10 @@ class Ajax extends MY_Controller {
         }
     }
     
-    public function upload_foto()
+    public function upload_foto($idanuncio)
     {
         if($this->input->post()){
-            $config["upload_path"] = "assets/fotos/";
+            $config["upload_path"] = "assets/fotos/anuncio" . $idanuncio . "/";
             $config["allowed_types"] = "gif|jpg|png";
             $config["overwrite"] = TRUE;
             $this->load->library("upload", $config);

@@ -29,7 +29,8 @@
           <h5 class="uppercase underline">Gerenciar Fotos </h5>
           <div class="my_vehicles_list">
             <form name="formUpload" id="formUpload" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>"
+                <input type="hidden" name="url" id="url" value="<?php echo site_url('ajax') ?>" />
+                <input type="hidden" name="id" id="id" value="<?php echo $anuncio->idanuncio ?>" />
                 <label>Selecione o arquivo: <input type="file" name="foto" id="foto" size="45" /></label>
                 <br />
                 <progress value="0" max="100"></progress><span id="porcentagem">0%</span>

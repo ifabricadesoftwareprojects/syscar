@@ -55,7 +55,7 @@ $(document).ready(function(){
                 $('#resposta').html('Erro ao enviar requisição!!!');
             },
             dataType: 'json',
-            url: $('#url').val() + "/upload_foto",
+            url: $('#url').val() + "/upload_foto/" + $('#id').val(),
             resetForm: true
         }).submit();
     })
