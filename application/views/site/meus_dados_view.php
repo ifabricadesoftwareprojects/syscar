@@ -1,7 +1,7 @@
 <!--my-vehicles-->
 <section class="user_profile inner_pages">
     <div class="container">
-        <div class="user_profile_info gray-bg padding_4x4_40">
+        <!--<div class="user_profile_info gray-bg padding_4x4_40">
             <div class="upload_user_logo"> <img src="<?php echo link_assets('site/images/dealer-logo.jpg') ?>" alt="image">
                 <div class="upload_newlogo">
                     <input name="upload" type="file">
@@ -12,7 +12,7 @@
                 <p>P.1225 N Broadway Ave <br>
                     Oklahoma City, OK  1234-5678-090</p>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-md-3 col-sm-3">
                 <?php if ($this->session->token) : ?>  
@@ -31,8 +31,7 @@
             <div class="col-md-6 col-sm-8">
                 <div class="profile_wrap">
                     <h5 class="uppercase underline">Meus Dados</h5>
-                    
-                    <p><?php echo $msg ?></p>
+                    <h6><font color="#FF0000"><b><?php echo $alert_message ?></b></font></h6>
                     <form action="<?php echo base_url('minha_conta/meus_dados/editar') ?>" method="post">
                         <div class="form-group">
                             <label>Nome</label>
