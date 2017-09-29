@@ -34,12 +34,12 @@
                     <h6><font color="#FF0000"><b><?php echo $alert_message ?></b></font></h6>
                     <form action="<?php echo base_url('minha_conta/meus_dados/editar') ?>" method="post">
                         <div class="form-group">
-                            <label>Nome</label>
+                            <label>Nome:</label>
                             <input type="text" name="nome" class="form-control" placeholder="Nome" value="<?php echo $usuario->nome ?>"<?php echo (isset($dados_usuario) ? $dados_usuario['nome'] : '') ?>>
                             <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email:</label>
                             <input type="text" name="email" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>"<?php echo (isset($dados_usuario) ? $dados_usuario['email'] : '') ?>>
                             <?php echo display_erros(isset($erros['email']) ? $erros['email'] : null) ?>
                         </div>
@@ -51,15 +51,15 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Se não deseja alterar a senha deixe ambos campos abaixo em branco!</label>
-                            <br>
-                            <label>Senha</label>
+                            
+                            <label>Senha:</label>
+                            <label class="aviso">Deixe os campos abaixo em branco para manter a senha atual!</label>
                             <input type="password" name="senha" class="form-control" placeholder="" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['senha'] : '') ?>>
                             <?php echo display_erros(isset($erros['senha']) ? $erros['senha'] : null) ?>
                         </div>
 
                         <div class="form-group">
-                            <label>Confirmar Senha</label>
+                            <label>Confirmar Senha:</label>
                             <input type="password" name="confirmar" class="form-control" placeholder="" value=""<?php echo (isset($dados_usuario) ? $dados_usuario['confirmar'] : '') ?>>
                             <?php echo display_erros(isset($erros['confirmar']) ? $erros['confirmar'] : null) ?>
                         </div>
